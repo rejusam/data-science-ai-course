@@ -41,3 +41,16 @@ Then start Jupyter from the repository root:
 ```
 jupyter lab
 ```
+
+## Notebooks
+
+| Notebook | What it does |
+|---|---|
+| [`your-cohort-in-data.ipynb`](notebooks/your-cohort-in-data.ipynb) | Takes the session 1 poll export, cleans it, and shows the cohort what it looks like as data |
+
+`your-cohort-in-data.ipynb` is worth running even if you saw it in class. It
+goes from a genuinely messy spreadsheet to ten charts, and every step is one
+you will learn to do yourself between weeks 2 and 5.
+
+It runs from the tidy CSVs in `data/`, so it works without the original
+export. Those CSVs hold aggregate counts only. No names, and no study codes.

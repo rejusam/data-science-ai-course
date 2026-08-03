@@ -1,0 +1,51 @@
+order,qtype,question,item,level,level_index,count
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Python programming,Never touched it,0,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Python programming,"Seen it, cannot do it yet",1,3
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Python programming,Can do it with help,2,5
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Python programming,Can do it on my own,3,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Python programming,Could teach it to someone,4,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Statistics and probability,Never touched it,0,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Statistics and probability,"Seen it, cannot do it yet",1,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Statistics and probability,Can do it with help,2,7
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Statistics and probability,Can do it on my own,3,2
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Statistics and probability,Could teach it to someone,4,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,SQL and databases,Never touched it,0,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,SQL and databases,"Seen it, cannot do it yet",1,2
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,SQL and databases,Can do it with help,2,3
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,SQL and databases,Can do it on my own,3,3
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,SQL and databases,Could teach it to someone,4,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Machine learning concepts,Never touched it,0,4
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Machine learning concepts,"Seen it, cannot do it yet",1,4
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Machine learning concepts,Can do it with help,2,2
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Machine learning concepts,Can do it on my own,3,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Machine learning concepts,Could teach it to someone,4,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Generative AI and LLMs,Never touched it,0,5
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Generative AI and LLMs,"Seen it, cannot do it yet",1,4
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Generative AI and LLMs,Can do it with help,2,1
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Generative AI and LLMs,Can do it on my own,3,0
+7,SCALES,Honest self-check: how confident are you TODAY in each of these?,Generative AI and LLMs,Could teach it to someone,4,0
+12,SCALES,Rate your comfort with each of these tools right now,Anaconda / conda environments,Never used it,0,5
+12,SCALES,Rate your comfort with each of these tools right now,Anaconda / conda environments,Disagree,1,0
+12,SCALES,Rate your comfort with each of these tools right now,Anaconda / conda environments,Neutral,2,5
+12,SCALES,Rate your comfort with each of these tools right now,Anaconda / conda environments,Agree,3,0
+12,SCALES,Rate your comfort with each of these tools right now,Anaconda / conda environments,Use it confidently,4,0
+12,SCALES,Rate your comfort with each of these tools right now,Jupyter Notebook or JupyterLab,Never used it,0,4
+12,SCALES,Rate your comfort with each of these tools right now,Jupyter Notebook or JupyterLab,Disagree,1,2
+12,SCALES,Rate your comfort with each of these tools right now,Jupyter Notebook or JupyterLab,Neutral,2,3
+12,SCALES,Rate your comfort with each of these tools right now,Jupyter Notebook or JupyterLab,Agree,3,1
+12,SCALES,Rate your comfort with each of these tools right now,Jupyter Notebook or JupyterLab,Use it confidently,4,0
+12,SCALES,Rate your comfort with each of these tools right now,VS Code,Never used it,0,4
+12,SCALES,Rate your comfort with each of these tools right now,VS Code,Disagree,1,0
+12,SCALES,Rate your comfort with each of these tools right now,VS Code,Neutral,2,2
+12,SCALES,Rate your comfort with each of these tools right now,VS Code,Agree,3,3
+12,SCALES,Rate your comfort with each of these tools right now,VS Code,Use it confidently,4,1
+12,SCALES,Rate your comfort with each of these tools right now,Google Colab,Never used it,0,6
+12,SCALES,Rate your comfort with each of these tools right now,Google Colab,Disagree,1,1
+12,SCALES,Rate your comfort with each of these tools right now,Google Colab,Neutral,2,1
+12,SCALES,Rate your comfort with each of these tools right now,Google Colab,Agree,3,2
+12,SCALES,Rate your comfort with each of these tools right now,Google Colab,Use it confidently,4,0
+12,SCALES,Rate your comfort with each of these tools right now,Git and GitHub,Never used it,0,4
+12,SCALES,Rate your comfort with each of these tools right now,Git and GitHub,Disagree,1,2
+12,SCALES,Rate your comfort with each of these tools right now,Git and GitHub,Neutral,2,1
+12,SCALES,Rate your comfort with each of these tools right now,Git and GitHub,Agree,3,3
+12,SCALES,Rate your comfort with each of these tools right now,Git and GitHub,Use it confidently,4,0
