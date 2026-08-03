@@ -1,0 +1,11 @@
+# Dependencies for the Streamlit dashboard only.
+#
+# Streamlit Community Cloud installs from this file with pip. It does not use
+# conda, so this is deliberately separate from setup/environment.yml, which is
+# the environment students build for coursework.
+#
+# Keep this list minimal: every package here is installed on every app boot.
+
+streamlit>=1.40,<2
+pandas>=2.2,<3
+plotly>=5.20,<7

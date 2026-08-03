@@ -1,0 +1,13 @@
+# Committed to a single light look. Streamlit lets a viewer switch the app
+# chrome to dark, but the Plotly charts are drawn against a light surface and
+# their palette was validated against that surface, so pinning the base keeps
+# chart and chrome consistent.
+[theme]
+base = "light"
+primaryColor = "#2a78d6"
+backgroundColor = "#f9f9f7"
+secondaryBackgroundColor = "#fcfcfb"
+textColor = "#0b0b0b"
+
+[server]
+headless = true

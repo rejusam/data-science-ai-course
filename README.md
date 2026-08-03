@@ -117,6 +117,24 @@ Check what they tell you. Language models produce confident, well-formatted,
 wrong answers, particularly about library APIs and version-specific behaviour.
 Run the code. Read the actual documentation.
 
+## The cohort dashboard
+
+An interactive dashboard built from the session 1 poll data lives in
+[`streamlit_app.py`](streamlit_app.py). Six tabs, ten charts, a table view for
+every question, and a download of the underlying data.
+
+Run it locally:
+
+```
+conda activate dsai
+pip install streamlit plotly
+streamlit run streamlit_app.py
+```
+
+`requirements.txt` at the repository root exists for Streamlit Community
+Cloud, which installs with pip and does not use conda. It is deliberately
+separate from `setup/environment.yml`, which is the coursework environment.
+
 ## Licence
 
 Course materials are released under [CC BY-NC-SA 4.0](LICENSE). Code samples
