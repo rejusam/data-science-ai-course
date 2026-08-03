@@ -1,0 +1,67 @@
+# Your own work. Anything in here is yours and is never committed, so it can
+# never conflict with course updates.
+scratch/
+
+# Secrets. If you ever commit one of these, treat the key as leaked and
+# rotate it. Deleting it in a later commit does not remove it from history.
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments. The environment is rebuilt from environment.yml,
+# never committed.
+.venv/
+venv/
+env/
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
+
+# Large data. Keep datasets under about 50 MB; GitHub rejects anything over
+# 100 MB. Link to the source instead, or use the loader in the lab.
+*.csv.gz
+*.parquet
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.sqlite
+*.db
+*.zip
+*.tar.gz
+
+# Trained models
+*.joblib
+*.pt
+*.pth
+*.onnx
+*.keras
+saved_model/
+checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

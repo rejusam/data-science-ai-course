@@ -1,0 +1,73 @@
+# Conda environment for the Data Science & AI course.
+#
+# Create it with:
+#     conda env create -f environment.yml
+# Then activate it with:
+#     conda activate dsai
+#
+# This covers modules 0 through 8. The heavy libraries used later in the
+# course (TensorFlow, PySpark, cloud SDKs) are installed separately when we
+# reach them. See extras/README.md for why.
+
+name: dsai
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.11
+  - pip
+
+  # Core numerical and data handling
+  #
+  # pandas is held below 3.0 on purpose. pandas 3.0 changed the default string
+  # dtype and made copy-on-write the default. Course labs, textbooks and most
+  # answers you will find online still assume 2.x behaviour, so pinning here
+  # means the errors you hit are your own, not version drift.
+  - numpy>=1.26,<3
+  - pandas>=2.2,<3
+  - scipy
+  - openpyxl
+
+  # Plotting
+  - matplotlib
+  - seaborn
+  - plotly
+
+  # Statistics
+  - statsmodels
+
+  # Machine learning
+  - scikit-learn
+  - imbalanced-learn
+  - xgboost
+  - python-graphviz
+
+  # Notebooks
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - ipywidgets
+
+  # Databases and web
+  - sqlalchemy
+  - requests
+  - beautifulsoup4
+  - lxml
+
+  # Natural language
+  - nltk
+  - spacy
+
+  # Serving models
+  - flask
+  - fastapi
+  - uvicorn
+
+  # Utilities
+  - python-dotenv
+  - pytest
+
+  - pip:
+      # Not packaged on conda-forge, or the pip build is the maintained one.
+      - kmodes
