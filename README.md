@@ -12,6 +12,11 @@ If you are a student joining the course, do these three things in order.
 
 **1. Install the tools.** Anaconda, VS Code, Git, and a GitHub account.
 
+Work through [`resources/setup-checklist.md`](resources/setup-checklist.md).
+It sequences every setup guide in this repository and has a diagnosis table for
+when something does not work. If you are ever unsure what to do next, that page
+is the answer.
+
 - Comfortable with a terminal, or willing to be: [`setup/README.md`](setup/README.md)
 - Prefer clicking through installers: [`resources/installing-the-tools.md`](resources/installing-the-tools.md)
 
@@ -47,7 +52,7 @@ Every line should say `OK`. If not, the output tells you what to do, and
 | [`modules/`](modules/README.md) | Teaching material, one folder per module, in course order |
 | [`labs/`](labs) | Lab exercises |
 | [`projects/`](projects) | Mini project and capstone briefs |
-| [`resources/`](resources) | Cheat sheets, glossary, further reading |
+| [`resources/`](resources) | Setup guides, cheat sheets, notebook hygiene |
 | [`reports/`](reports) | Written analysis of the cohort's own data |
 | [`SYLLABUS.md`](SYLLABUS.md) | Every session, date, topic and due date |
 
