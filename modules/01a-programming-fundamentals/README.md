@@ -51,3 +51,20 @@ Then start Jupyter from the repository root:
 ```
 jupyter lab
 ```
+
+## Notebooks and materials
+
+| File | What it is |
+|---|---|
+| [`notebooks/lab-1-1-python-basics.ipynb`](notebooks/lab-1-1-python-basics.ipynb) | Session 2 live-coding notebook and Lab 1.1 |
+| [`ecg_signal.py`](ecg_signal.py) | Generates the simulated ECG signal used in the NumPy session |
+| [`stretch-tasks.md`](stretch-tasks.md) | Extra work for all three labs, for when the core is done |
+
+Read [`../../resources/notebook-hygiene.md`](../../resources/notebook-hygiene.md)
+before the first lab. It is one page and it prevents the most common source of
+confusion with notebooks.
+
+`ecg_signal.py` is worth reading rather than only importing. It is about eighty
+lines and, by the end of session 2, uses nothing you have not been taught. The
+signal is entirely synthetic, built from mathematical curves. No patient data
+is used anywhere in this course.
