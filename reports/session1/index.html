@@ -1,0 +1,1293 @@
+<style>
+  :root {
+    color-scheme: light;
+    --paper:      #fbfaf7;
+    --paper-2:    #f2f0ea;
+    --rule:       #ddd9cf;
+    --ink:        #12161c;
+    --ink-2:      #3d4550;
+    --ink-3:      #6a7280;
+    --accent:     #2a78d6;
+    --accent-deep:#104281;
+    --gap:        #c1481a;
+    --gap-soft:   #f6e6de;
+
+    --chart-ink:   #12161c;
+    --chart-muted: #5b6470;
+    --chart-faint: #c9c6bd;
+    --chart-blue:  #2a78d6;
+    --chart-warm:  #c1481a;
+
+    --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 63ch;
+    --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.9rem);
+    --step-0:  clamp(1.06rem, 1.02rem + 0.18vw, 1.19rem);
+    --step-1:  clamp(1.3rem, 1.2rem + 0.4vw, 1.55rem);
+    --step-2:  clamp(1.7rem, 1.45rem + 1vw, 2.3rem);
+    --step-3:  clamp(2.3rem, 1.8rem + 2.4vw, 4rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --paper:      #101317;
+      --paper-2:    #171b21;
+      --rule:       #2c323a;
+      --ink:        #f2f1ec;
+      --ink-2:      #c3c6cc;
+      --ink-3:      #8b929c;
+      --accent:     #5b9ceb;
+      --accent-deep:#8fbdf2;
+      --gap:        #f0895c;
+      --gap-soft:   #2e211b;
+
+      --chart-ink:   #f2f1ec;
+      --chart-muted: #9aa1ab;
+      --chart-faint: #333a43;
+      --chart-blue:  #4a90e8;
+      --chart-warm:  #f0895c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:      #101317;
+    --paper-2:    #171b21;
+    --rule:       #2c323a;
+    --ink:        #f2f1ec;
+    --ink-2:      #c3c6cc;
+    --ink-3:      #8b929c;
+    --accent:     #5b9ceb;
+    --accent-deep:#8fbdf2;
+    --gap:        #f0895c;
+    --gap-soft:   #2e211b;
+
+    --chart-ink:   #f2f1ec;
+    --chart-muted: #9aa1ab;
+    --chart-faint: #333a43;
+    --chart-blue:  #4a90e8;
+    --chart-warm:  #f0895c;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: var(--step-0);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+  .col { max-width: var(--measure); }
+
+  /* ---------------------------------------------------------- masthead -- */
+
+  header.masthead {
+    padding: 5rem 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 1.75rem;
+  }
+  h1 {
+    font-size: var(--step-3);
+    line-height: 1.02;
+    letter-spacing: -0.021em;
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+    max-width: 18ch;
+  }
+  .standfirst {
+    font-size: var(--step-1);
+    line-height: 1.42;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 48ch;
+    text-wrap: pretty;
+  }
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2.2rem;
+    margin-top: 2.75rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  .byline b { color: var(--ink-2); font-weight: 500; }
+
+  /* ------------------------------------------------------------ layout -- */
+
+  section { padding-top: 3.75rem; }
+
+  h2 {
+    font-size: var(--step-2);
+    line-height: 1.14;
+    letter-spacing: -0.014em;
+    font-weight: 600;
+    margin: 0 0 1.1rem;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    margin: 2.5rem 0 0.7rem;
+    max-width: 34ch;
+  }
+  p { margin: 0 0 1.15rem; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  strong { font-weight: 600; }
+
+  .finding-label {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gap);
+    margin: 0 0 0.85rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+  .finding-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ------------------------------------------------------------ figure -- */
+
+  figure {
+    margin: 2.25rem 0 2.5rem;
+    padding: 1.6rem 1.5rem 1.2rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  figure .plot { overflow-x: auto; }
+  figure svg { display: block; width: 100%; height: auto; min-width: 460px; }
+  figcaption {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    line-height: 1.55;
+    color: var(--ink-3);
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    max-width: 78ch;
+  }
+
+  /* -------------------------------------------------------- pull stats -- */
+
+  .gap-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin: 2.25rem 0;
+    overflow: hidden;
+  }
+  .gap-pair div { background: var(--paper); padding: 1.4rem 1.35rem; }
+  .gap-pair dt {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.6rem;
+  }
+  .gap-pair dd {
+    margin: 0;
+    font-size: 2.1rem;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .gap-pair dd small {
+    display: block;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--ink-2);
+    letter-spacing: 0;
+    margin-top: 0.5rem;
+    font-family: var(--serif);
+  }
+  .gap-pair .is-gap dd { color: var(--gap); }
+
+  blockquote {
+    margin: 2.25rem 0;
+    padding: 1.35rem 1.5rem;
+    background: var(--gap-soft);
+    border-left: 3px solid var(--gap);
+    border-radius: 0 3px 3px 0;
+    font-size: var(--step-1);
+    line-height: 1.44;
+    color: var(--ink);
+    max-width: 46ch;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* -------------------------------------------------------------- list -- */
+
+  ul.actions { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  ul.actions li {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: minmax(0, 15ch) 1fr;
+    gap: 0.4rem 1.75rem;
+  }
+  ul.actions li:last-child { border-bottom: 1px solid var(--rule); }
+  ul.actions b {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 500;
+    padding-top: 0.32em;
+  }
+  @media (max-width: 620px) {
+    ul.actions li { grid-template-columns: 1fr; }
+  }
+
+  ol.caveats { padding-left: 1.3rem; margin: 1.5rem 0 0; }
+  ol.caveats li { margin-bottom: 1.05rem; padding-left: 0.35rem; }
+  ol.caveats::marker { font-family: var(--mono); }
+
+  /* ------------------------------------------------------------ footer -- */
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    line-height: 1.7;
+    color: var(--ink-3);
+    max-width: 74ch;
+  }
+  footer p { margin-bottom: 0.9rem; }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Cohort report &middot; Session 1</p>
+    <h1>The distance between here and week 25</h1>
+    <p class="standfirst">Twelve people started a Data Science &amp; AI course on a Monday
+      evening. Before anyone wrote a line of code, they answered twenty-five
+      questions. This is what the answers say.</p>
+    <div class="byline">
+      <span><b>Dr Reju Sam John</b> &middot; Lead trainer</span>
+      <span>Cohort 2026-08-03-DS-PT-AP-A</span>
+      <span>Fieldwork 3 Aug 2026</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="col">
+      <h2>The short version</h2>
+      <p>The room wants, above all else, to build machine learning models and to
+        work with generative AI. Those are also the two subjects it is least able
+        to do anything with today. Nothing else in the data comes close to that
+        gap.</p>
+      <p>That is not a warning sign. It is the most ordinary thing in the world
+        on the first night of a course, and it is worth measuring precisely
+        because it tells you what to teach, in what order, and what to say when
+        somebody is thinking about quitting in week nine.</p>
+      <p>Three other things stand out. They underestimate how much of the job is
+        cleaning data. When they get a question about causation wrong, they get
+        it wrong in an unexpected direction. And what they fear will stop them is
+        not the mathematics &mdash; it is their own calendars.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 01</p>
+    <div class="col">
+      <h2>They want most what they can do least</h2>
+      <p>Two questions, asked eight minutes apart. First: rank five capabilities
+        by how much you want them by week 25. Second: rate your honest confidence
+        in five subjects today, from <em>never touched it</em> to
+        <em>could teach it</em>.</p>
+      <p>Read separately, each is unremarkable. Read together, they are the whole
+        story of the course.</p>
+    </div>
+
+    <figure>
+      <div class="plot"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 913.378203 287.9755" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 287.9755 
+L 913.378203 287.9755 
+L 913.378203 0 
+L 0 0 
+L 0 287.9755 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 278.8325 258.381969 
+L 519.538382 258.381969 
+L 519.538382 31.077969 
+L 278.8325 31.077969 
+L 278.8325 258.381969 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 278.8325 248.049969 
+L 399.185441 248.049969 
+L 399.185441 221.096925 
+L 278.8325 221.096925 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 278.8325 203.12823 
+L 426.538382 203.12823 
+L 426.538382 176.175186 
+L 278.8325 176.175186 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 278.8325 158.20649 
+L 448.420735 158.20649 
+L 448.420735 131.253447 
+L 278.8325 131.253447 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 278.8325 113.284751 
+L 464.8325 113.284751 
+L 464.8325 86.331708 
+L 278.8325 86.331708 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 278.8325 68.363012 
+L 475.773676 68.363012 
+L 475.773676 41.409969 
+L 278.8325 41.409969 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="text_1">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="399.185441" y="270.033531" transform="rotate(-0 399.185441 270.033531)">rank score</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="239.13251" transform="rotate(-0 275.3325 239.13251)">Write clean, confident Python</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="194.21077" transform="rotate(-0 275.3325 194.21077)">Wrangle data with SQL, APIs and pipelines</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="149.289031" transform="rotate(-0 275.3325 149.289031)">Deploy models and build with Generative AI</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_5">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="104.367292" transform="rotate(-0 275.3325 104.367292)">Build and evaluate machine learning models</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_5"/>
+     <g id="text_6">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="59.445553" transform="rotate(-0 275.3325 59.445553)">Tell a convincing story with data</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_8">
+    <path d="M 278.8325 258.381969 
+L 519.538382 258.381969 
+" style="fill: none; stroke: var(--chart-faint); stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="403.561912" y="237.637978" transform="rotate(-0 403.561912 237.637978)">22</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="430.914853" y="192.716239" transform="rotate(-0 430.914853 192.716239)">27</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="452.797206" y="147.7945" transform="rotate(-0 452.797206 147.7945)">31</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="469.208971" y="102.872761" transform="rotate(-0 469.208971 102.872761)">34</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="480.150147" y="57.951022" transform="rotate(-0 480.150147 57.951022)">36</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: var(--chart-ink)" x="278.8325" y="17.077969" transform="rotate(-0 278.8325 17.077969)">What they want by week 25</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_9">
+    <path d="M 651.926618 258.381969 
+L 892.6325 258.381969 
+L 892.6325 31.077969 
+L 651.926618 31.077969 
+L 651.926618 258.381969 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 651.926618 248.049969 
+L 688.0325 248.049969 
+L 688.0325 221.096925 
+L 651.926618 221.096925 
+z
+" clip-path="url(#pd1908c62be)" style="fill: var(--chart-warm)"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 651.926618 203.12823 
+L 700.067794 203.12823 
+L 700.067794 176.175186 
+L 651.926618 176.175186 
+z
+" clip-path="url(#pd1908c62be)" style="fill: var(--chart-warm)"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 651.926618 158.20649 
+L 748.208971 158.20649 
+L 748.208971 131.253447 
+L 651.926618 131.253447 
+z
+" clip-path="url(#pd1908c62be)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 651.926618 113.284751 
+L 772.279559 113.284751 
+L 772.279559 86.331708 
+L 651.926618 86.331708 
+z
+" clip-path="url(#pd1908c62be)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 651.926618 68.363012 
+L 778.297206 68.363012 
+L 778.297206 41.409969 
+L 651.926618 41.409969 
+z
+" clip-path="url(#pd1908c62be)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_1">
+     <g id="line2d_6"/>
+     <g id="text_13">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(638.380915 268.768375)">never</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(632.962633 278.903781)">touched</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_7"/>
+     <g id="text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="712.103088" y="268.768375" transform="rotate(-0 712.103088 268.768375)">seen it</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_8"/>
+     <g id="text_15">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(761.442996 268.768375)">with</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(761.442996 278.903781)">help</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_9"/>
+     <g id="text_16">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(818.910326 268.768375)">on my</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(824.328608 278.903781)">own</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_10"/>
+     <g id="text_17">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(879.086797 268.768375)">could</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: var(--chart-muted)" transform="translate(879.086797 278.903781)">teach</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_11"/>
+     <g id="text_18">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="648.426618" y="239.13251" transform="rotate(-0 648.426618 239.13251)">Generative AI and LLMs</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_12"/>
+     <g id="text_19">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="648.426618" y="194.21077" transform="rotate(-0 648.426618 194.21077)">Machine learning concepts</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_13"/>
+     <g id="text_20">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="648.426618" y="149.289031" transform="rotate(-0 648.426618 149.289031)">Python programming</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_14"/>
+     <g id="text_21">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="648.426618" y="104.367292" transform="rotate(-0 648.426618 104.367292)">Statistics and probability</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_15"/>
+     <g id="text_22">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="648.426618" y="59.445553" transform="rotate(-0 648.426618 59.445553)">SQL and databases</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_15">
+    <path d="M 651.926618 258.381969 
+L 892.6325 258.381969 
+" style="fill: none; stroke: var(--chart-faint); stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="693.448382" y="237.637978" transform="rotate(-0 693.448382 237.637978)">0.60</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="705.483676" y="192.716239" transform="rotate(-0 705.483676 192.716239)">0.80</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="753.624853" y="147.7945" transform="rotate(-0 753.624853 147.7945)">1.60</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="777.695441" y="102.872761" transform="rotate(-0 777.695441 102.872761)">2.00</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="783.713088" y="57.951022" transform="rotate(-0 783.713088 57.951022)">2.10</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: var(--chart-ink)" x="651.926618" y="17.077969" transform="rotate(-0 651.926618 17.077969)">What they can do today</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0aa60586c1">
+   <rect x="278.8325" y="31.077969" width="240.705882" height="227.304"/>
+  </clipPath>
+  <clipPath id="pd1908c62be">
+   <rect x="651.926618" y="31.077969" width="240.705882" height="227.304"/>
+  </clipPath>
+ </defs>
+</svg></div>
+      <figcaption>Left: rank score, the sum of positions across ten people &mdash; higher
+        means ranked more important, more often. Right: mean position on a
+        five-point confidence scale, 0 to 4. Orange marks the two subjects
+        sitting below 1.0, which is to say below "seen it, cannot do it yet".</figcaption>
+    </figure>
+
+    <div class="col">
+      <dl class="gap-pair">
+        <div>
+          <dt>Second most wanted</dt>
+          <dd>34<small>Rank score for building and evaluating machine learning
+            models &mdash; beaten only by storytelling.</small></dd>
+        </div>
+        <div class="is-gap">
+          <dt>Second least confident</dt>
+          <dd>0.80<small>Mean confidence in machine learning concepts. Four of
+            ten have never touched it.</small></dd>
+        </div>
+      </dl>
+
+      <p>Generative AI is the sharper version of the same shape: third most
+        wanted, and the least confident subject in the room at 0.60, with five of
+        ten reporting they have never touched it.</p>
+      <p>The inverse holds too. Writing clean Python is ranked <em>last</em> of
+        the five things they want, and it is the third most confident subject.
+        People do not aspire to the thing they can already partly do.</p>
+
+      <blockquote>
+        <p>The gap between what this room wants and what it can do is not a
+          problem to be fixed before the course starts. It is the course.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 02</p>
+    <div class="col">
+      <h2>The gap already has a timetable</h2>
+      <p>Mapping each ranked goal onto the week it is actually taught turns an
+        anxiety into a schedule. This chart is the single most useful thing to
+        put in front of a student who is worried in week three.</p>
+    </div>
+
+    <figure>
+      <div class="plot"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 899.8325 224.3145" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 224.3145 
+L 899.8325 224.3145 
+L 899.8325 0 
+L 0 0 
+L 0 224.3145 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 278.8325 190.152 
+L 892.6325 190.152 
+L 892.6325 7.2 
+L 278.8325 7.2 
+L 278.8325 190.152 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 298.6325 181.836 
+L 338.2325 181.836 
+L 338.2325 161.731385 
+L 298.6325 161.731385 
+z
+" clip-path="url(#p6f1ae0f40c)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 397.6325 145.282154 
+L 457.0325 145.282154 
+L 457.0325 125.177538 
+L 397.6325 125.177538 
+z
+" clip-path="url(#p6f1ae0f40c)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 655.0325 108.728308 
+L 694.6325 108.728308 
+L 694.6325 88.623692 
+L 655.0325 88.623692 
+z
+" clip-path="url(#p6f1ae0f40c)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 437.2325 72.174462 
+L 575.8325 72.174462 
+L 575.8325 52.069846 
+L 437.2325 52.069846 
+z
+" clip-path="url(#p6f1ae0f40c)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 635.2325 35.620615 
+L 694.6325 35.620615 
+L 694.6325 15.516 
+L 635.2325 15.516 
+z
+" clip-path="url(#p6f1ae0f40c)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="298.6325" y="201.303562" transform="rotate(-0 298.6325 201.303562)">1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="377.8325" y="201.303562" transform="rotate(-0 377.8325 201.303562)">5</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="476.8325" y="201.303562" transform="rotate(-0 476.8325 201.303562)">10</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="575.8325" y="201.303562" transform="rotate(-0 575.8325 201.303562)">15</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="674.8325" y="201.303562" transform="rotate(-0 674.8325 201.303562)">20</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="773.8325" y="201.303562" transform="rotate(-0 773.8325 201.303562)">25</text>
+     </g>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="585.7325" y="215.034813" transform="rotate(-0 585.7325 215.034813)">week of the course</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7"/>
+     <g id="text_8">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="176.342755" transform="rotate(-0 275.3325 176.342755)">Write clean, confident Python</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_8"/>
+     <g id="text_9">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="139.788909" transform="rotate(-0 275.3325 139.788909)">Wrangle data with SQL, APIs and pipelines</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_9"/>
+     <g id="text_10">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="103.235063" transform="rotate(-0 275.3325 103.235063)">Deploy models and build with Generative AI</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_10"/>
+     <g id="text_11">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="66.681216" transform="rotate(-0 275.3325 66.681216)">Build and evaluate machine learning models</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_11"/>
+     <g id="text_12">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="275.3325" y="30.12737" transform="rotate(-0 275.3325 30.12737)">Tell a convincing story with data</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_8">
+    <path d="M 278.8325 190.152 
+L 892.6325 190.152 
+" style="fill: none; stroke: var(--chart-faint); stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="338.2325" y="174.708927" transform="rotate(-0 338.2325 174.708927)">weeks 1&#8211;2</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="457.0325" y="138.155081" transform="rotate(-0 457.0325 138.155081)">weeks 6&#8211;8</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="694.6325" y="101.601234" transform="rotate(-0 694.6325 101.601234)">weeks 19&#8211;20</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="575.8325" y="65.047388" transform="rotate(-0 575.8325 65.047388)">weeks 8&#8211;14</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="694.6325" y="28.493542" transform="rotate(-0 694.6325 28.493542)">weeks 18&#8211;20</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6f1ae0f40c">
+   <rect x="278.8325" y="7.2" width="613.8" height="182.952"/>
+  </clipPath>
+ </defs>
+</svg></div>
+      <figcaption>Goals in ranked order, top to bottom, against the weeks in which
+        each is taught. Week ranges come from the course delivery plan.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>The ordering is not an accident of scheduling, and it is worth saying so
+        out loud. The top-ranked goal, telling a convincing story with data,
+        lands in weeks 18 to 20 &mdash; near the end, because you cannot tell a story
+        about a model you have not built yet. The lowest-ranked goal, Python,
+        starts in week one, because everything else rests on it.</p>
+      <p>A cohort that understands why the thing they care about comes last is a
+        cohort that is still there in week 18.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 03</p>
+    <div class="col">
+      <h2>They think the job is the modelling</h2>
+      <p>Asked what share of a working data scientist's time goes on finding,
+        cleaning and preparing data, the room's answers ran from 20% to 100%.
+        That spread is the finding. Ten people gave nine different answers,
+        covering essentially the entire possible range: nobody in the room
+        knows.</p>
+    </div>
+
+    <figure>
+      <div class="plot"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 628.2 166.23125" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 166.23125 
+L 628.2 166.23125 
+L 628.2 0 
+L 0 0 
+L 0 166.23125 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 7.2 145.8 
+L 621 145.8 
+L 621 7.2 
+L 7.2 7.2 
+L 7.2 145.8 
+z
+" style="fill: none"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="96.58835" y="156.951563" transform="rotate(-0 96.58835 156.951563)">20%</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="215.772816" y="156.951563" transform="rotate(-0 215.772816 156.951563)">40%</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="334.957282" y="156.951563" transform="rotate(-0 334.957282 156.951563)">60%</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="454.141748" y="156.951563" transform="rotate(-0 454.141748 156.951563)">80%</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="573.326214" y="156.951563" transform="rotate(-0 573.326214 156.951563)">100%</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="line2d_6">
+    <path d="M 454.141748 145.8 
+L 454.141748 7.2 
+" clip-path="url(#p49410f006a)" style="fill: none; stroke: var(--chart-warm); stroke-width: 2.4; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 340.916505 145.8 
+L 340.916505 7.2 
+" clip-path="url(#p49410f006a)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: var(--chart-muted); stroke-width: 1.2"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 7.2 145.8 
+L 621 145.8 
+" style="fill: none; stroke: var(--chart-faint); stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="C0_0_b7ffb81b95" d="M 0 8.062258 
+C 2.138136 8.062258 4.188987 7.212767 5.700877 5.700877 
+C 7.212767 4.188987 8.062258 2.138136 8.062258 -0 
+C 8.062258 -2.138136 7.212767 -4.188987 5.700877 -5.700877 
+C 4.188987 -7.212767 2.138136 -8.062258 0 -8.062258 
+C -2.138136 -8.062258 -4.188987 -7.212767 -5.700877 -5.700877 
+C -7.212767 -4.188987 -8.062258 -2.138136 -8.062258 0 
+C -8.062258 2.138136 -7.212767 4.188987 -5.700877 5.700877 
+C -4.188987 7.212767 -2.138136 8.062258 0 8.062258 
+z
+"/>
+    </defs>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="96.58835" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="126.384466" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="275.365049" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="275.365049" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="287.283495" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="394.549515" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="424.345631" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="454.141748" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="519.693204" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+    <g clip-path="url(#p49410f006a)">
+     <use xlink:href="#C0_0_b7ffb81b95" x="573.326214" y="76.5" style="fill: var(--chart-blue); fill-opacity: 0.55"/>
+    </g>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-warm)" x="463.080583" y="29.376" transform="rotate(-0 463.080583 29.376)">commonly quoted: 80%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="340.916505" y="129.168" transform="rotate(-0 340.916505 129.168)">their median 61%</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p49410f006a">
+   <rect x="7.2" y="7.2" width="613.8" height="138.6"/>
+  </clipPath>
+ </defs>
+</svg></div>
+      <figcaption>Each dot is one person's estimate; overlapping dots read darker.
+        Median 61%. The 80% line is the figure the industry quotes most often &mdash;
+        see the caveat on it below.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>Seven of ten guessed below 80%. The direction of the error matters more
+        than its size: a beginner who expects the work to be modelling will
+        experience the first eight weeks of any honest data science course as a
+        delay before the real thing starts.</p>
+      <p>It is not a delay. Modules 2 and 3 are about acquiring and cleaning
+        data, and they come before any modelling precisely because that is the
+        proportion the job has.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 04</p>
+    <div class="col">
+      <h2>The revealing wrong answer</h2>
+      <p>Four questions had a correct answer. Performance was reasonable at the
+        two ends and weak in the middle, which is roughly what a week-one cohort
+        should look like.</p>
+    </div>
+
+    <figure>
+      <div class="plot"><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 804.30875 190.576421" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 190.576421 
+L 804.30875 190.576421 
+L 804.30875 0 
+L 0 0 
+L 0 190.576421 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 183.30875 183.376421 
+L 797.10875 183.376421 
+L 797.10875 22.600421 
+L 183.30875 22.600421 
+L 183.30875 183.376421 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 183.30875 176.068421 
+L 334.243176 176.068421 
+L 334.243176 153.423914 
+L 183.30875 153.423914 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 183.30875 134.89659 
+L 434.866127 134.89659 
+L 434.866127 112.252083 
+L 183.30875 112.252083 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 183.30875 93.724759 
+L 614.549968 93.724759 
+L 614.549968 71.080252 
+L 183.30875 71.080252 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 183.30875 52.552928 
+L 630.521865 52.552928 
+L 630.521865 29.908421 
+L 183.30875 29.908421 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: var(--chart-blue)"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="179.80875" y="169.30523" transform="rotate(-0 179.80875 169.30523)">Spotting supervised learning</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="179.80875" y="128.133399" transform="rotate(-0 179.80875 128.133399)">Correlation vs causation</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="179.80875" y="86.961568" transform="rotate(-0 179.80875 86.961568)">Git vs GitHub</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: var(--chart-ink)" x="179.80875" y="45.789737" transform="rotate(-0 179.80875 45.789737)">Recognising overfitting</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_5">
+    <path d="M 434.866127 183.376421 
+L 434.866127 22.600421 
+" clip-path="url(#p0ebe21a3ed)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: var(--chart-faint); stroke-width: 1.2"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="344.305471" y="167.671402" transform="rotate(-0 344.305471 167.671402)">30%   3/10</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="444.928422" y="126.499571" transform="rotate(-0 444.928422 126.499571)">50%   5/10</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="624.612263" y="85.32774" transform="rotate(-0 624.612263 85.32774)">86%   6/7</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: var(--chart-muted)" x="640.58416" y="44.155909" transform="rotate(-0 640.58416 44.155909)">89%   8/9</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: var(--chart-muted)" x="434.866127" y="14.468984" transform="rotate(-0 434.866127 14.468984)">half the room</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0ebe21a3ed">
+   <rect x="183.30875" y="22.600421" width="613.8" height="160.776"/>
+  </clipPath>
+ </defs>
+</svg></div>
+      <figcaption>Percentage correct among those who answered each question.
+        Denominators differ: seven people answered the Git question and nine the
+        overfitting question, against ten for the other two.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>The correlation question is the interesting one. Ice cream sales and
+        drowning deaths both rise every summer; what is the safest conclusion?
+        Half the room correctly identified that hot weather drives both.</p>
+      <p>Of those who did not, only <strong>one</strong> chose the punchline
+        answer, that ice cream causes drowning. <strong>Four</strong> chose
+        something else entirely: that the correlation must be a mistake.</p>
+      <p>But the correlation is completely real. It is strong, it is repeatable,
+        and it will show up in any dataset covering enough summers. Dismissing a
+        real signal because its obvious causal reading is absurd is a more
+        expensive habit than the naive causal claim, and a much harder one to
+        catch, because it looks like scepticism. It gets a full session in week
+        six.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 05</p>
+    <div class="col">
+      <h2>The obstacle is the calendar</h2>
+      <p>Asked in their own words what was most likely to get in the way over the
+        next 25 weeks, the room did not say mathematics, or coding, or the pace.
+        Four said work. Two said time and one said lack of time. One said
+        holidays. The remaining two named combinations: work and holidays, work
+        and family commitments.</p>
+      <p>Every single answer was about available hours. Not one was about
+        capability.</p>
+      <p>Asked what habit they would commit to, four of them said the same thing:
+        practice. The others named revision, scheduling study time, and reviewing
+        class recordings.</p>
+      <p>This is what part-time study is, and it is not a character flaw. It does
+        mean the design of the course has to survive a bad week at work. Forty-five
+        focused minutes on a weeknight beats one heroic Sunday, and the
+        difference between those two patterns is the difference between finishing
+        and not.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>What changed because of this</h2>
+      <p>A report that ends at "interesting" is not worth the time it took to
+        write. Five things about how this course runs were decided or changed on
+        the strength of these answers.</p>
+
+      <ul class="actions">
+        <li><b>Setup</b><span>Eight of twelve are on Windows and three are on a
+          shared or family computer. The setup guide is written twice, once per
+          operating system, and nothing in week one assumes administrator
+          rights.</span></li>
+        <li><b>First lab</b><span>Three had nothing installed and two did not know
+          what was installed. The first hands-on session runs in the browser,
+          so nobody is locked out by an installation problem.</span></li>
+        <li><b>Git</b><span>Six of twelve had never heard of Git or knew the name
+          only. It is introduced as a course-long habit from week one rather than
+          assumed as prior knowledge.</span></li>
+        <li><b>Sequencing</b><span>The roadmap in Finding 02 is shown to students
+          directly, early, so the wait for the thing they want is legible rather
+          than discouraging.</span></li>
+        <li><b>Support</b><span>Half the room said their honest first move on an
+          error is to read the error message; a quarter said they paste it into
+          an AI assistant. Both get addressed explicitly, because the second one
+          works right up until it doesn't.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>What this cannot tell you</h2>
+      <p>The findings above are worth acting on. They are not worth
+        over-reading, and the reasons are ordinary enough to state plainly.</p>
+
+      <ol class="caveats">
+        <li><strong>Twelve people, and usually ten answering.</strong> Every
+          percentage here moves by eight to ten points if one person clicks
+          differently. Treat these as directional, not precise. A single
+          percentage point carries no information at this size.</li>
+        <li><strong>Confidence is self-reported.</strong> The confidence scale
+          measures what people are willing to say about themselves in front of a
+          new cohort on night one, which is related to competence but is not the
+          same thing. Both under- and over-statement are plausible here, in
+          different directions for different people.</li>
+        <li><strong>Non-response is not random.</strong> Participation averaged
+          83%, and the Git knowledge question drew the fewest answers of all at
+          seven of twelve. People are more likely to skip a question they cannot
+          answer, which means the 86% correct on that question is almost
+          certainly flattering.</li>
+        <li><strong>One moment, no comparison.</strong> This is a single
+          snapshot with no baseline and no control. It cannot tell you whether
+          this cohort is typical, and nothing here is causal.</li>
+        <li><strong>The 80% figure is a convention, not a measurement.</strong>
+          It is widely quoted across the industry and it is useful for making the
+          point. It is not something this analysis established, and it should not
+          be cited as though it were a precise statistic.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Method.</b> Twenty-five live poll questions delivered during the session
+      of 3 August 2026. Twelve participants; mean participation 83%; most
+      questions drew ten responses. The export was parsed from its original
+      spreadsheet form into tidy tables, then aggregated. Rank scores are
+      position sums across respondents. The confidence index is the mean position
+      on a five-point ordinal scale from 0 to 4, weighted by how many chose each
+      level.</p>
+    <p><b>Privacy.</b> Aggregate counts only. No names, no individual response
+      rows, and no study codes. The parser does not read the sheet containing
+      participant display names, and a test enforces that.</p>
+    <p><b>Reproducibility.</b> The parser, its tests, the notebook and the
+      interactive dashboard behind these figures are in the course repository.
+      Charts here were generated from the same tidy tables that feed the
+      dashboard.</p>
+  </footer>
+
+</div>

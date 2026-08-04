@@ -1,0 +1,290 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="913.378203pt" height="287.9755pt" viewBox="0 0 913.378203 287.9755" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 287.9755 
+L 913.378203 287.9755 
+L 913.378203 0 
+L 0 0 
+L 0 287.9755 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 278.8325 258.381969 
+L 519.538382 258.381969 
+L 519.538382 31.077969 
+L 278.8325 31.077969 
+L 278.8325 258.381969 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 278.8325 248.049969 
+L 399.185441 248.049969 
+L 399.185441 221.096925 
+L 278.8325 221.096925 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 278.8325 203.12823 
+L 426.538382 203.12823 
+L 426.538382 176.175186 
+L 278.8325 176.175186 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 278.8325 158.20649 
+L 448.420735 158.20649 
+L 448.420735 131.253447 
+L 278.8325 131.253447 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 278.8325 113.284751 
+L 464.8325 113.284751 
+L 464.8325 86.331708 
+L 278.8325 86.331708 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 278.8325 68.363012 
+L 475.773676 68.363012 
+L 475.773676 41.409969 
+L 278.8325 41.409969 
+z
+" clip-path="url(#p0aa60586c1)" style="fill: #2a78d6"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="text_1">
+     <text style="font-size: 10px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: #5b6470" x="399.185441" y="270.033531" transform="rotate(-0 399.185441 270.033531)">rank score</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="275.3325" y="239.13251" transform="rotate(-0 275.3325 239.13251)">Write clean, confident Python</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="275.3325" y="194.21077" transform="rotate(-0 275.3325 194.21077)">Wrangle data with SQL, APIs and pipelines</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="275.3325" y="149.289031" transform="rotate(-0 275.3325 149.289031)">Deploy models and build with Generative AI</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_5">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="275.3325" y="104.367292" transform="rotate(-0 275.3325 104.367292)">Build and evaluate machine learning models</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_5"/>
+     <g id="text_6">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="275.3325" y="59.445553" transform="rotate(-0 275.3325 59.445553)">Tell a convincing story with data</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_8">
+    <path d="M 278.8325 258.381969 
+L 519.538382 258.381969 
+" style="fill: none; stroke: #c9c6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="403.561912" y="237.637978" transform="rotate(-0 403.561912 237.637978)">22</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="430.914853" y="192.716239" transform="rotate(-0 430.914853 192.716239)">27</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="452.797206" y="147.7945" transform="rotate(-0 452.797206 147.7945)">31</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="469.208971" y="102.872761" transform="rotate(-0 469.208971 102.872761)">34</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="480.150147" y="57.951022" transform="rotate(-0 480.150147 57.951022)">36</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #12161c" x="278.8325" y="17.077969" transform="rotate(-0 278.8325 17.077969)">What they want by week 25</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_9">
+    <path d="M 651.926618 258.381969 
+L 892.6325 258.381969 
+L 892.6325 31.077969 
+L 651.926618 31.077969 
+L 651.926618 258.381969 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 651.926618 248.049969 
+L 688.0325 248.049969 
+L 688.0325 221.096925 
+L 651.926618 221.096925 
+z
+" clip-path="url(#pd1908c62be)" style="fill: #eb6834"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 651.926618 203.12823 
+L 700.067794 203.12823 
+L 700.067794 176.175186 
+L 651.926618 176.175186 
+z
+" clip-path="url(#pd1908c62be)" style="fill: #eb6834"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 651.926618 158.20649 
+L 748.208971 158.20649 
+L 748.208971 131.253447 
+L 651.926618 131.253447 
+z
+" clip-path="url(#pd1908c62be)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 651.926618 113.284751 
+L 772.279559 113.284751 
+L 772.279559 86.331708 
+L 651.926618 86.331708 
+z
+" clip-path="url(#pd1908c62be)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 651.926618 68.363012 
+L 778.297206 68.363012 
+L 778.297206 41.409969 
+L 651.926618 41.409969 
+z
+" clip-path="url(#pd1908c62be)" style="fill: #2a78d6"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_1">
+     <g id="line2d_6"/>
+     <g id="text_13">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(638.380915 268.768375)">never</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(632.962633 278.903781)">touched</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_7"/>
+     <g id="text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: #5b6470" x="712.103088" y="268.768375" transform="rotate(-0 712.103088 268.768375)">seen it</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_8"/>
+     <g id="text_15">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(761.442996 268.768375)">with</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(761.442996 278.903781)">help</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_9"/>
+     <g id="text_16">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(818.910326 268.768375)">on my</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(824.328608 278.903781)">own</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_10"/>
+     <g id="text_17">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(879.086797 268.768375)">could</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; fill: #5b6470" transform="translate(879.086797 278.903781)">teach</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_6">
+     <g id="line2d_11"/>
+     <g id="text_18">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="648.426618" y="239.13251" transform="rotate(-0 648.426618 239.13251)">Generative AI and LLMs</text>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_12"/>
+     <g id="text_19">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="648.426618" y="194.21077" transform="rotate(-0 648.426618 194.21077)">Machine learning concepts</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_13"/>
+     <g id="text_20">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="648.426618" y="149.289031" transform="rotate(-0 648.426618 149.289031)">Python programming</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_14"/>
+     <g id="text_21">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="648.426618" y="104.367292" transform="rotate(-0 648.426618 104.367292)">Statistics and probability</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_15"/>
+     <g id="text_22">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="648.426618" y="59.445553" transform="rotate(-0 648.426618 59.445553)">SQL and databases</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_15">
+    <path d="M 651.926618 258.381969 
+L 892.6325 258.381969 
+" style="fill: none; stroke: #c9c6bd; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="693.448382" y="237.637978" transform="rotate(-0 693.448382 237.637978)">0.60</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="705.483676" y="192.716239" transform="rotate(-0 705.483676 192.716239)">0.80</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="753.624853" y="147.7945" transform="rotate(-0 753.624853 147.7945)">1.60</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="777.695441" y="102.872761" transform="rotate(-0 777.695441 102.872761)">2.00</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="783.713088" y="57.951022" transform="rotate(-0 783.713088 57.951022)">2.10</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #12161c" x="651.926618" y="17.077969" transform="rotate(-0 651.926618 17.077969)">What they can do today</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0aa60586c1">
+   <rect x="278.8325" y="31.077969" width="240.705882" height="227.304"/>
+  </clipPath>
+  <clipPath id="pd1908c62be">
+   <rect x="651.926618" y="31.077969" width="240.705882" height="227.304"/>
+  </clipPath>
+ </defs>
+</svg>

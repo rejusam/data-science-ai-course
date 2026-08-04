@@ -1,0 +1,561 @@
+<style>
+  :root {
+    color-scheme: light;
+    --paper:      #fbfaf7;
+    --paper-2:    #f2f0ea;
+    --rule:       #ddd9cf;
+    --ink:        #12161c;
+    --ink-2:      #3d4550;
+    --ink-3:      #6a7280;
+    --accent:     #2a78d6;
+    --accent-deep:#104281;
+    --gap:        #c1481a;
+    --gap-soft:   #f6e6de;
+
+    --chart-ink:   #12161c;
+    --chart-muted: #5b6470;
+    --chart-faint: #c9c6bd;
+    --chart-blue:  #2a78d6;
+    --chart-warm:  #c1481a;
+
+    --serif: Charter, "Bitstream Charter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+    --measure: 63ch;
+    --step--1: clamp(0.82rem, 0.8rem + 0.1vw, 0.9rem);
+    --step-0:  clamp(1.06rem, 1.02rem + 0.18vw, 1.19rem);
+    --step-1:  clamp(1.3rem, 1.2rem + 0.4vw, 1.55rem);
+    --step-2:  clamp(1.7rem, 1.45rem + 1vw, 2.3rem);
+    --step-3:  clamp(2.3rem, 1.8rem + 2.4vw, 4rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --paper:      #101317;
+      --paper-2:    #171b21;
+      --rule:       #2c323a;
+      --ink:        #f2f1ec;
+      --ink-2:      #c3c6cc;
+      --ink-3:      #8b929c;
+      --accent:     #5b9ceb;
+      --accent-deep:#8fbdf2;
+      --gap:        #f0895c;
+      --gap-soft:   #2e211b;
+
+      --chart-ink:   #f2f1ec;
+      --chart-muted: #9aa1ab;
+      --chart-faint: #333a43;
+      --chart-blue:  #4a90e8;
+      --chart-warm:  #f0895c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:      #101317;
+    --paper-2:    #171b21;
+    --rule:       #2c323a;
+    --ink:        #f2f1ec;
+    --ink-2:      #c3c6cc;
+    --ink-3:      #8b929c;
+    --accent:     #5b9ceb;
+    --accent-deep:#8fbdf2;
+    --gap:        #f0895c;
+    --gap-soft:   #2e211b;
+
+    --chart-ink:   #f2f1ec;
+    --chart-muted: #9aa1ab;
+    --chart-faint: #333a43;
+    --chart-blue:  #4a90e8;
+    --chart-warm:  #f0895c;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: var(--step-0);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+  .col { max-width: var(--measure); }
+
+  /* ---------------------------------------------------------- masthead -- */
+
+  header.masthead {
+    padding: 5rem 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 1.75rem;
+  }
+  h1 {
+    font-size: var(--step-3);
+    line-height: 1.02;
+    letter-spacing: -0.021em;
+    font-weight: 600;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+    max-width: 18ch;
+  }
+  .standfirst {
+    font-size: var(--step-1);
+    line-height: 1.42;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 48ch;
+    text-wrap: pretty;
+  }
+  .byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 2.2rem;
+    margin-top: 2.75rem;
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+  }
+  .byline b { color: var(--ink-2); font-weight: 500; }
+
+  /* ------------------------------------------------------------ layout -- */
+
+  section { padding-top: 3.75rem; }
+
+  h2 {
+    font-size: var(--step-2);
+    line-height: 1.14;
+    letter-spacing: -0.014em;
+    font-weight: 600;
+    margin: 0 0 1.1rem;
+    max-width: 24ch;
+    text-wrap: balance;
+  }
+  h3 {
+    font-size: var(--step-1);
+    font-weight: 600;
+    margin: 2.5rem 0 0.7rem;
+    max-width: 34ch;
+  }
+  p { margin: 0 0 1.15rem; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  strong { font-weight: 600; }
+
+  .finding-label {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--gap);
+    margin: 0 0 0.85rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+  }
+  .finding-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ------------------------------------------------------------ figure -- */
+
+  figure {
+    margin: 2.25rem 0 2.5rem;
+    padding: 1.6rem 1.5rem 1.2rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+  }
+  figure .plot { overflow-x: auto; }
+  figure svg { display: block; width: 100%; height: auto; min-width: 460px; }
+  figcaption {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    line-height: 1.55;
+    color: var(--ink-3);
+    margin-top: 1.1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    max-width: 78ch;
+  }
+
+  /* -------------------------------------------------------- pull stats -- */
+
+  .gap-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    margin: 2.25rem 0;
+    overflow: hidden;
+  }
+  .gap-pair div { background: var(--paper); padding: 1.4rem 1.35rem; }
+  .gap-pair dt {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.6rem;
+  }
+  .gap-pair dd {
+    margin: 0;
+    font-size: 2.1rem;
+    line-height: 1.05;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .gap-pair dd small {
+    display: block;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--ink-2);
+    letter-spacing: 0;
+    margin-top: 0.5rem;
+    font-family: var(--serif);
+  }
+  .gap-pair .is-gap dd { color: var(--gap); }
+
+  blockquote {
+    margin: 2.25rem 0;
+    padding: 1.35rem 1.5rem;
+    background: var(--gap-soft);
+    border-left: 3px solid var(--gap);
+    border-radius: 0 3px 3px 0;
+    font-size: var(--step-1);
+    line-height: 1.44;
+    color: var(--ink);
+    max-width: 46ch;
+  }
+  blockquote p:last-child { margin-bottom: 0; }
+
+  /* -------------------------------------------------------------- list -- */
+
+  ul.actions { list-style: none; padding: 0; margin: 1.6rem 0 0; }
+  ul.actions li {
+    padding: 1.1rem 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: minmax(0, 15ch) 1fr;
+    gap: 0.4rem 1.75rem;
+  }
+  ul.actions li:last-child { border-bottom: 1px solid var(--rule); }
+  ul.actions b {
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    font-weight: 500;
+    padding-top: 0.32em;
+  }
+  @media (max-width: 620px) {
+    ul.actions li { grid-template-columns: 1fr; }
+  }
+
+  ol.caveats { padding-left: 1.3rem; margin: 1.5rem 0 0; }
+  ol.caveats li { margin-bottom: 1.05rem; padding-left: 0.35rem; }
+  ol.caveats::marker { font-family: var(--mono); }
+
+  /* ------------------------------------------------------------ footer -- */
+
+  footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: var(--step--1);
+    line-height: 1.7;
+    color: var(--ink-3);
+    max-width: 74ch;
+  }
+  footer p { margin-bottom: 0.9rem; }
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Cohort report &middot; Session 1</p>
+    <h1>The distance between here and week 25</h1>
+    <p class="standfirst">Twelve people started a Data Science &amp; AI course on a Monday
+      evening. Before anyone wrote a line of code, they answered twenty-five
+      questions. This is what the answers say.</p>
+    <div class="byline">
+      <span><b>Dr Reju Sam John</b> &middot; Lead trainer</span>
+      <span>Cohort 2026-08-03-DS-PT-AP-A</span>
+      <span>Fieldwork 3 Aug 2026</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="col">
+      <h2>The short version</h2>
+      <p>The room wants, above all else, to build machine learning models and to
+        work with generative AI. Those are also the two subjects it is least able
+        to do anything with today. Nothing else in the data comes close to that
+        gap.</p>
+      <p>That is not a warning sign. It is the most ordinary thing in the world
+        on the first night of a course, and it is worth measuring precisely
+        because it tells you what to teach, in what order, and what to say when
+        somebody is thinking about quitting in week nine.</p>
+      <p>Three other things stand out. They underestimate how much of the job is
+        cleaning data. When they get a question about causation wrong, they get
+        it wrong in an unexpected direction. And what they fear will stop them is
+        not the mathematics &mdash; it is their own calendars.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 01</p>
+    <div class="col">
+      <h2>They want most what they can do least</h2>
+      <p>Two questions, asked eight minutes apart. First: rank five capabilities
+        by how much you want them by week 25. Second: rate your honest confidence
+        in five subjects today, from <em>never touched it</em> to
+        <em>could teach it</em>.</p>
+      <p>Read separately, each is unremarkable. Read together, they are the whole
+        story of the course.</p>
+    </div>
+
+    <figure>
+      <div class="plot">{{want-vs-can.svg}}</div>
+      <figcaption>Left: rank score, the sum of positions across ten people &mdash; higher
+        means ranked more important, more often. Right: mean position on a
+        five-point confidence scale, 0 to 4. Orange marks the two subjects
+        sitting below 1.0, which is to say below "seen it, cannot do it yet".</figcaption>
+    </figure>
+
+    <div class="col">
+      <dl class="gap-pair">
+        <div>
+          <dt>Second most wanted</dt>
+          <dd>34<small>Rank score for building and evaluating machine learning
+            models &mdash; beaten only by storytelling.</small></dd>
+        </div>
+        <div class="is-gap">
+          <dt>Second least confident</dt>
+          <dd>0.80<small>Mean confidence in machine learning concepts. Four of
+            ten have never touched it.</small></dd>
+        </div>
+      </dl>
+
+      <p>Generative AI is the sharper version of the same shape: third most
+        wanted, and the least confident subject in the room at 0.60, with five of
+        ten reporting they have never touched it.</p>
+      <p>The inverse holds too. Writing clean Python is ranked <em>last</em> of
+        the five things they want, and it is the third most confident subject.
+        People do not aspire to the thing they can already partly do.</p>
+
+      <blockquote>
+        <p>The gap between what this room wants and what it can do is not a
+          problem to be fixed before the course starts. It is the course.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 02</p>
+    <div class="col">
+      <h2>The gap already has a timetable</h2>
+      <p>Mapping each ranked goal onto the week it is actually taught turns an
+        anxiety into a schedule. This chart is the single most useful thing to
+        put in front of a student who is worried in week three.</p>
+    </div>
+
+    <figure>
+      <div class="plot">{{roadmap.svg}}</div>
+      <figcaption>Goals in ranked order, top to bottom, against the weeks in which
+        each is taught. Week ranges come from the course delivery plan.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>The ordering is not an accident of scheduling, and it is worth saying so
+        out loud. The top-ranked goal, telling a convincing story with data,
+        lands in weeks 18 to 20 &mdash; near the end, because you cannot tell a story
+        about a model you have not built yet. The lowest-ranked goal, Python,
+        starts in week one, because everything else rests on it.</p>
+      <p>A cohort that understands why the thing they care about comes last is a
+        cohort that is still there in week 18.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 03</p>
+    <div class="col">
+      <h2>They think the job is the modelling</h2>
+      <p>Asked what share of a working data scientist's time goes on finding,
+        cleaning and preparing data, the room's answers ran from 20% to 100%.
+        That spread is the finding. Ten people gave nine different answers,
+        covering essentially the entire possible range: nobody in the room
+        knows.</p>
+    </div>
+
+    <figure>
+      <div class="plot">{{guess.svg}}</div>
+      <figcaption>Each dot is one person's estimate; overlapping dots read darker.
+        Median 61%. The 80% line is the figure the industry quotes most often &mdash;
+        see the caveat on it below.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>Seven of ten guessed below 80%. The direction of the error matters more
+        than its size: a beginner who expects the work to be modelling will
+        experience the first eight weeks of any honest data science course as a
+        delay before the real thing starts.</p>
+      <p>It is not a delay. Modules 2 and 3 are about acquiring and cleaning
+        data, and they come before any modelling precisely because that is the
+        proportion the job has.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 04</p>
+    <div class="col">
+      <h2>The revealing wrong answer</h2>
+      <p>Four questions had a correct answer. Performance was reasonable at the
+        two ends and weak in the middle, which is roughly what a week-one cohort
+        should look like.</p>
+    </div>
+
+    <figure>
+      <div class="plot">{{quiz.svg}}</div>
+      <figcaption>Percentage correct among those who answered each question.
+        Denominators differ: seven people answered the Git question and nine the
+        overfitting question, against ten for the other two.</figcaption>
+    </figure>
+
+    <div class="col">
+      <p>The correlation question is the interesting one. Ice cream sales and
+        drowning deaths both rise every summer; what is the safest conclusion?
+        Half the room correctly identified that hot weather drives both.</p>
+      <p>Of those who did not, only <strong>one</strong> chose the punchline
+        answer, that ice cream causes drowning. <strong>Four</strong> chose
+        something else entirely: that the correlation must be a mistake.</p>
+      <p>But the correlation is completely real. It is strong, it is repeatable,
+        and it will show up in any dataset covering enough summers. Dismissing a
+        real signal because its obvious causal reading is absurd is a more
+        expensive habit than the naive causal claim, and a much harder one to
+        catch, because it looks like scepticism. It gets a full session in week
+        six.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="finding-label">Finding 05</p>
+    <div class="col">
+      <h2>The obstacle is the calendar</h2>
+      <p>Asked in their own words what was most likely to get in the way over the
+        next 25 weeks, the room did not say mathematics, or coding, or the pace.
+        Four said work. Two said time and one said lack of time. One said
+        holidays. The remaining two named combinations: work and holidays, work
+        and family commitments.</p>
+      <p>Every single answer was about available hours. Not one was about
+        capability.</p>
+      <p>Asked what habit they would commit to, four of them said the same thing:
+        practice. The others named revision, scheduling study time, and reviewing
+        class recordings.</p>
+      <p>This is what part-time study is, and it is not a character flaw. It does
+        mean the design of the course has to survive a bad week at work. Forty-five
+        focused minutes on a weeknight beats one heroic Sunday, and the
+        difference between those two patterns is the difference between finishing
+        and not.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>What changed because of this</h2>
+      <p>A report that ends at "interesting" is not worth the time it took to
+        write. Five things about how this course runs were decided or changed on
+        the strength of these answers.</p>
+
+      <ul class="actions">
+        <li><b>Setup</b><span>Eight of twelve are on Windows and three are on a
+          shared or family computer. The setup guide is written twice, once per
+          operating system, and nothing in week one assumes administrator
+          rights.</span></li>
+        <li><b>First lab</b><span>Three had nothing installed and two did not know
+          what was installed. The first hands-on session runs in the browser,
+          so nobody is locked out by an installation problem.</span></li>
+        <li><b>Git</b><span>Six of twelve had never heard of Git or knew the name
+          only. It is introduced as a course-long habit from week one rather than
+          assumed as prior knowledge.</span></li>
+        <li><b>Sequencing</b><span>The roadmap in Finding 02 is shown to students
+          directly, early, so the wait for the thing they want is legible rather
+          than discouraging.</span></li>
+        <li><b>Support</b><span>Half the room said their honest first move on an
+          error is to read the error message; a quarter said they paste it into
+          an AI assistant. Both get addressed explicitly, because the second one
+          works right up until it doesn't.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>What this cannot tell you</h2>
+      <p>The findings above are worth acting on. They are not worth
+        over-reading, and the reasons are ordinary enough to state plainly.</p>
+
+      <ol class="caveats">
+        <li><strong>Twelve people, and usually ten answering.</strong> Every
+          percentage here moves by eight to ten points if one person clicks
+          differently. Treat these as directional, not precise. A single
+          percentage point carries no information at this size.</li>
+        <li><strong>Confidence is self-reported.</strong> The confidence scale
+          measures what people are willing to say about themselves in front of a
+          new cohort on night one, which is related to competence but is not the
+          same thing. Both under- and over-statement are plausible here, in
+          different directions for different people.</li>
+        <li><strong>Non-response is not random.</strong> Participation averaged
+          83%, and the Git knowledge question drew the fewest answers of all at
+          seven of twelve. People are more likely to skip a question they cannot
+          answer, which means the 86% correct on that question is almost
+          certainly flattering.</li>
+        <li><strong>One moment, no comparison.</strong> This is a single
+          snapshot with no baseline and no control. It cannot tell you whether
+          this cohort is typical, and nothing here is causal.</li>
+        <li><strong>The 80% figure is a convention, not a measurement.</strong>
+          It is widely quoted across the industry and it is useful for making the
+          point. It is not something this analysis established, and it should not
+          be cited as though it were a precise statistic.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>Method.</b> Twenty-five live poll questions delivered during the session
+      of 3 August 2026. Twelve participants; mean participation 83%; most
+      questions drew ten responses. The export was parsed from its original
+      spreadsheet form into tidy tables, then aggregated. Rank scores are
+      position sums across respondents. The confidence index is the mean position
+      on a five-point ordinal scale from 0 to 4, weighted by how many chose each
+      level.</p>
+    <p><b>Privacy.</b> Aggregate counts only. No names, no individual response
+      rows, and no study codes. The parser does not read the sheet containing
+      participant display names, and a test enforces that.</p>
+    <p><b>Reproducibility.</b> The parser, its tests, the notebook and the
+      interactive dashboard behind these figures are in the course repository.
+      Charts here were generated from the same tidy tables that feed the
+      dashboard.</p>
+  </footer>
+
+</div>

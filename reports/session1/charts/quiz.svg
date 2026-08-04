@@ -1,0 +1,124 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="804.30875pt" height="190.576421pt" viewBox="0 0 804.30875 190.576421" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.6, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 190.576421 
+L 804.30875 190.576421 
+L 804.30875 0 
+L 0 0 
+L 0 190.576421 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 183.30875 183.376421 
+L 797.10875 183.376421 
+L 797.10875 22.600421 
+L 183.30875 22.600421 
+L 183.30875 183.376421 
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 183.30875 176.068421 
+L 334.243176 176.068421 
+L 334.243176 153.423914 
+L 183.30875 153.423914 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 183.30875 134.89659 
+L 434.866127 134.89659 
+L 434.866127 112.252083 
+L 183.30875 112.252083 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 183.30875 93.724759 
+L 614.549968 93.724759 
+L 614.549968 71.080252 
+L 183.30875 71.080252 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: #2a78d6"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 183.30875 52.552928 
+L 630.521865 52.552928 
+L 630.521865 29.908421 
+L 183.30875 29.908421 
+z
+" clip-path="url(#p0ebe21a3ed)" style="fill: #2a78d6"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="179.80875" y="169.30523" transform="rotate(-0 179.80875 169.30523)">Spotting supervised learning</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="179.80875" y="128.133399" transform="rotate(-0 179.80875 128.133399)">Correlation vs causation</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="179.80875" y="86.961568" transform="rotate(-0 179.80875 86.961568)">Git vs GitHub</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #12161c" x="179.80875" y="45.789737" transform="rotate(-0 179.80875 45.789737)">Recognising overfitting</text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_5">
+    <path d="M 434.866127 183.376421 
+L 434.866127 22.600421 
+" clip-path="url(#p0ebe21a3ed)" style="fill: none; stroke-dasharray: 4.8,3.6; stroke-dashoffset: 0; stroke: #c9c6bd; stroke-width: 1.2"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="344.305471" y="167.671402" transform="rotate(-0 344.305471 167.671402)">30%   3/10</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="444.928422" y="126.499571" transform="rotate(-0 444.928422 126.499571)">50%   5/10</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="624.612263" y="85.32774" transform="rotate(-0 624.612263 85.32774)">86%   6/7</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: start; fill: #5b6470" x="640.58416" y="44.155909" transform="rotate(-0 640.58416 44.155909)">89%   8/9</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 9.5px; font-family: 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Computer Modern Typewriter', 'Andale Mono', 'Nimbus Mono L', 'Courier New', 'Courier', 'Fixed', 'Terminal', monospace; text-anchor: middle; fill: #5b6470" x="434.866127" y="14.468984" transform="rotate(-0 434.866127 14.468984)">half the room</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p0ebe21a3ed">
+   <rect x="183.30875" y="22.600421" width="613.8" height="160.776"/>
+  </clipPath>
+ </defs>
+</svg>

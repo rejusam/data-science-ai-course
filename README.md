@@ -48,6 +48,7 @@ Every line should say `OK`. If not, the output tells you what to do, and
 | [`labs/`](labs) | Lab exercises |
 | [`projects/`](projects) | Mini project and capstone briefs |
 | [`resources/`](resources) | Cheat sheets, glossary, further reading |
+| [`reports/`](reports) | Written analysis of the cohort's own data |
 | [`SYLLABUS.md`](SYLLABUS.md) | Every session, date, topic and due date |
 
 ## The shape of the course
@@ -134,6 +135,15 @@ streamlit run streamlit_app.py
 `requirements.txt` at the repository root exists for Streamlit Community
 Cloud, which installs with pip and does not use conda. It is deliberately
 separate from `setup/environment.yml`, which is the coursework environment.
+
+## The storytelling report
+
+[`reports/session1/`](reports/session1/index.html) is a written analysis of the
+same data: what the cohort wants, what it can do today, and what changed about
+the course as a result. It is a worked example of the skill this cohort ranked
+first, telling a convincing story with data, which is taught in weeks 18 to 20.
+
+Its closing section lists what the data cannot tell you. Read that part twice.
 
 ## Licence
 
