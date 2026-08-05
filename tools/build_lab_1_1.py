@@ -100,10 +100,12 @@ statement of fact.
 """),
     code("""
 heart_rate = 72
+temperature = 38.4
 patient_id = "REG-0041"
 is_flagged = False
 
 print(heart_rate)
+print(temperature)
 print(patient_id)
 print(is_flagged)
 """),
@@ -114,20 +116,26 @@ what it is, because types decide what operations are allowed.
 """),
     code("""
 print(type(heart_rate))
+print(type(temperature))
 print(type(patient_id))
 print(type(is_flagged))
-print(type(72.5))
 """),
 
     md("""
-The four you will use constantly:
+Those four are the ones you will use constantly. The table is in the same
+order as the output above.
 
-| Type | What it holds | Example |
+| Type | What it holds | Our example |
 |---|---|---|
-| `int` | whole number | `72` |
-| `float` | number with a decimal point | `72.5` |
-| `str` | text | `"REG-0041"` |
-| `bool` | true or false | `False` |
+| `int` | whole number | `heart_rate = 72` |
+| `float` | number with a decimal point | `temperature = 38.4` |
+| `str` | text | `patient_id = "REG-0041"` |
+| `bool` | true or false | `is_flagged = False` |
+
+`38.4` is a float because it has a decimal point. `72` is an int because it
+does not. That is the whole distinction, and it matters more than it looks:
+dividing two ints in Python gives you a float, which surprises people coming
+from other languages.
 """),
 
     predict("What will `print(\"5\" + 5)` do?"),
