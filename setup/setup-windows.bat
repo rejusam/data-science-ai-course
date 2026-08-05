@@ -37,7 +37,10 @@ if errorlevel 1 (
     exit /b 1
 )
 
-conda --version
+REM `call` is required on every conda command. On Windows conda is conda.bat,
+REM and invoking one batch file from another without `call` hands over control
+REM and never returns, so the rest of this script would silently not run.
+call conda --version
 
 if not exist "%ENV_FILE%" (
     echo ERROR: cannot find %ENV_FILE%
@@ -68,6 +71,24 @@ if errorlevel 1 (
     echo ERROR: could not activate %ENV_NAME%.
     echo Run "conda init cmd.exe", close this window, open a new Anaconda
     echo Prompt, and try again.
+    exit /b 1
+)
+
+REM If the environment exists but has no Python in it, `python` falls through
+REM to the Microsoft Store stub and every later step fails confusingly.
+call python -c "import sys; print(sys.executable)" >nul 2>&1
+if errorlevel 1 (
+    echo.
+    echo ERROR: Python is not available inside "%ENV_NAME%".
+    echo.
+    echo The environment exists but looks empty, which usually means an
+    echo earlier run of this script stopped part way through.
+    echo.
+    echo Remove it and build it again:
+    echo     conda deactivate
+    echo     conda env remove -n %ENV_NAME%
+    echo     conda env create -f setup\environment.yml
+    echo.
     exit /b 1
 )
 

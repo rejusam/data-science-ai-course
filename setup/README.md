@@ -184,6 +184,34 @@ close the window, open a new Anaconda Prompt, and try again.
 **PowerShell refuses to run the script.** That is the execution policy. Use
 the exact command given in step 2, which includes `-ExecutionPolicy Bypass`.
 
+**Windows says "Python was not found; run without arguments to install from
+the Microsoft Store".** Windows ships a placeholder `python` that opens the
+Store, and you are seeing it because the real Python was not found first.
+
+Check whether the environment actually contains Python:
+
+```
+conda activate dsai
+conda list python
+```
+
+If that lists nothing, the environment exists but is empty — usually because a
+setup run stopped part way. Rebuild it:
+
+```
+conda deactivate
+conda env remove -n dsai
+conda env create -f setup/environment.yml
+```
+
+If Python *is* listed and you still get the Store message, turn off the
+placeholder: **Settings → Apps → Advanced app settings → App execution
+aliases**, and switch off both `python.exe` and `python3.exe`. Then open a new
+terminal.
+
+**The setup script prints the conda version and then stops.** Fixed in August
+2026. Run `git pull` to get the corrected script and try again.
+
 **The solve takes forever or fails.** conda is working out a set of package
 versions that are all compatible with each other. On a slow connection this is
 genuinely slow. If it fails outright, copy the error into Slack rather than
