@@ -66,11 +66,13 @@ checkpoints/
 Thumbs.db
 desktop.ini
 
-# --- Temporary: session materials held back until after each class ---
+# --- Session materials held back until their class has run ---
 # Untracked so students cannot read ahead; predict-before-you-run only works
 # if the answer is not already on screen. These files still exist locally.
-# Remove these four lines and re-add the files to publish them again.
-modules/01a-programming-fundamentals/notebooks/lab-1-1-python-basics.ipynb
+#
+# To publish one after its session has run, delete its line below, then:
+#     git add <path> && git commit && git push
+# A notebook and the script that builds it come down, and go back, together —
+# the build script holds the same content as the notebook.
 modules/01a-programming-fundamentals/notebooks/lab-1-2-1-numpy.ipynb
-tools/build_lab_1_1.py
 tools/build_lab_1_2_1.py

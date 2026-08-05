@@ -56,12 +56,12 @@ jupyter lab
 
 | File | What it is |
 |---|---|
-| `notebooks/lab-1-1-python-basics.ipynb` | Session 2 live-coding notebook and Lab 1.1. Published after the session |
+| [`notebooks/lab-1-1-python-basics.ipynb`](notebooks/lab-1-1-python-basics.ipynb) | Session 2 live-coding notebook and Lab 1.1 |
 | `notebooks/lab-1-2-1-numpy.ipynb` | Session 3 live-coding notebook and Lab 1.2.1. Published after the session |
 | [`ecg_signal.py`](ecg_signal.py) | Generates the simulated ECG signal used in the NumPy session |
 | [`stretch-tasks.md`](stretch-tasks.md) | Extra work for all three labs, for when the core is done |
 
-**Lab notebooks appear here after their session, not before.** Several of the
+**Each lab notebook appears here after its session, not before.** Several of the
 exercises ask you to predict what a piece of code will do before running it,
 and that only teaches you something if you have not already seen the answer.
 You will be given the notebook in class.

@@ -97,7 +97,7 @@ profile is what employers actually look at.
 ## Stage 5 — Ready to work
 
 - [ ] Read [`notebook-hygiene.md`](notebook-hygiene.md). One page, five minutes.
-- [ ] Open the Lab 1.1 notebook, which you are given in the session
+- [ ] Open `modules/01a-programming-fundamentals/notebooks/lab-1-1-python-basics.ipynb`
 - [ ] Run **Restart & Run All**. It should complete without stopping.
 
 That notebook contains three cells that are broken on purpose, so you will see
