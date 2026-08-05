@@ -113,6 +113,9 @@ conda deactivate
 python setup/verify.py
 ```
 
+It checks three things: the command-line tools (`conda`, `git`, `jupyter`), the
+environment you are currently in, and every package the course needs.
+
 Every line should say `OK`. If anything says `MISSING`, the output tells you
 what to run next.
 

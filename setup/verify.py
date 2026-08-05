@@ -10,6 +10,7 @@ class. Copy the whole output into Slack if you need help.
 """
 import importlib
 import platform
+import shutil
 import sys
 import warnings
 
@@ -44,6 +45,16 @@ PACKAGES = [
     ("kmodes", "clustering categorical data"),
     ("openpyxl", "reading Excel files"),
     ("pytest", "running tests"),
+]
+
+# (command, required, what it is for)
+TOOLS = [
+    ("conda", True, "manages the course environment"),
+    ("git", True, "tracks your work"),
+    ("jupyter", True, "runs notebooks"),
+    ("gh", False, "GitHub from the terminal, used from week 2"),
+    ("code", False, "the 'code' command for VS Code. VS Code can be "
+                    "installed without it"),
 ]
 
 MIN_PYTHON = (3, 9)
@@ -81,6 +92,27 @@ def check_environment():
     return True
 
 
+def check_tools():
+    """Check the command-line tools, which are separate from the packages.
+
+    A tool being absent here usually means it is not installed, or that this
+    terminal was opened before it was installed.
+    """
+    print()
+    print("Tools")
+    missing = []
+    for command, required, purpose in TOOLS:
+        path = shutil.which(command)
+        if path:
+            print("  OK       {:<10} {}".format(command, path))
+        elif required:
+            print("  MISSING  {:<10} {}".format(command, purpose))
+            missing.append(command)
+        else:
+            print("  --       {:<10} optional. {}".format(command, purpose))
+    return missing
+
+
 def check_packages():
     print()
     print("Packages")
@@ -103,13 +135,25 @@ def main():
     print("=" * 68)
     python_ok = check_python()
     env_ok = check_environment()
+    missing_tools = check_tools()
     missing = check_packages()
 
     print()
     print("=" * 68)
-    if not missing and python_ok and env_ok:
+    if not missing and not missing_tools and python_ok and env_ok:
         print("Everything is working. You are ready for class.")
         return 0
+
+    if missing_tools:
+        print("{} tool(s) missing: {}".format(
+            len(missing_tools), ", ".join(missing_tools)))
+        print()
+        print("If you have just installed one of these, close this terminal")
+        print("completely and open a new one. Installers only affect terminals")
+        print("opened afterwards.")
+        print()
+        print("Otherwise see resources/setup-checklist.md")
+        print()
 
     if missing:
         print("{} package(s) missing: {}".format(len(missing), ", ".join(missing)))

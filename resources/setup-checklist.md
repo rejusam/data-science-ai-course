@@ -49,6 +49,10 @@ Guide: [`../setup/README.md`](../setup/README.md)
 - [ ] `conda activate dsai` shows `(dsai)` at the start of your prompt
 - [ ] `python setup/verify.py` prints `OK` on every line
 
+`verify.py` is the single command that checks everything — the tools, the
+environment you are in, and all the packages. Run it any time you are not sure
+whether your setup is still intact.
+
 This is the stage that takes longest. The download is around 1 GB and the
 progress display sits still for long stretches. That is normal.
 
