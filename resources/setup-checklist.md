@@ -131,6 +131,8 @@ is not a problem to fix — it means you already have the repository and should
 | What you see | What it means | Where to look |
 |---|---|---|
 | `conda: command not found` | Terminal opened before the installer finished, or wrong terminal on Windows | [Stage 1](#stage-1--the-four-tools) |
+| Not sure which Windows terminal you are in | `PS` at the start of the prompt means PowerShell; no `PS` means cmd | Use `.ps1` for PowerShell, `.bat` for cmd |
+| "Python was not found ... Microsoft Store" | Environment is empty, or the Windows app execution alias is on | [`../setup/README.md`](../setup/README.md) troubleshooting |
 | `gh` or `git` "not recognized" while `(dsai)` is showing | Tool installed into a different conda environment. They are per-environment | [Git guide](installing-git-and-github-cli.md#troubleshooting) |
 | `destination path ... already exists and is not an empty directory` | You have already cloned it. Clone once, `git pull` thereafter | `cd data-science-ai-course && git pull` |
 | `git pull` refuses, "local changes would be overwritten" | You edited a file that also changed upstream | Copy your version elsewhere, pull, then merge by hand. Ask in Slack rather than forcing |

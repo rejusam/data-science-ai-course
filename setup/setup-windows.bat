@@ -7,6 +7,12 @@ REM and run:
 REM
 REM     setup\setup-windows.bat
 REM
+REM There are two Anaconda terminals in the Start menu. This one is for
+REM Anaconda Prompt, whose prompt looks like:  (base) C:\Users\you>
+REM If yours shows PS  --  (base) PS C:\Users\you>  --  you are in Anaconda
+REM PowerShell Prompt, and setup-windows.ps1 is the better fit. Either script
+REM works in either terminal.
+REM
 REM Safe to run more than once. If the environment already exists it is
 REM updated rather than rebuilt.
 

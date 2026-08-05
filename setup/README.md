@@ -68,17 +68,19 @@ and checks the result.
 bash setup/setup-mac.sh
 ```
 
-**Windows, Anaconda PowerShell Prompt:**
+**Windows.** There are two Anaconda terminals in your Start menu with almost
+the same name, and they need different scripts. Check your prompt first:
 
-```
-powershell -ExecutionPolicy Bypass -File setup\setup-windows.ps1
-```
+| Your prompt looks like | You are in | Run this |
+|---|---|---|
+| `(base) PS C:\Users\you>` | Anaconda **PowerShell** Prompt | `powershell -ExecutionPolicy Bypass -File setup\setup-windows.ps1` |
+| `(base) C:\Users\you>` | Anaconda Prompt (cmd) | `setup\setup-windows.bat` |
 
-**Windows, Anaconda Prompt:**
+**The `PS` is the tell.** If it is there, you are in PowerShell.
 
-```
-setup\setup-windows.bat
-```
+Both scripts do exactly the same thing, and either will run in either terminal.
+Matching them up just means you get the clearer error messages if something
+goes wrong.
 
 It downloads about 1 GB and takes somewhere between 5 and 15 minutes. The
 progress display sits still for long stretches. That is normal. Leave it alone
