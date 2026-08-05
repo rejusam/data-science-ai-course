@@ -119,6 +119,11 @@ Four commands. `git pull` fetches the new material, `conda activate` puts you
 in the right environment. Neither is optional, and forgetting the second is the
 cause of most "it was working yesterday" messages.
 
+**You clone once and pull thereafter.** `git clone` creates the folder; running
+it again in the same place fails with "destination path already exists", which
+is not a problem to fix — it means you already have the repository and should
+`cd` into it and `git pull` instead.
+
 ---
 
 ## Quick diagnosis
@@ -126,6 +131,9 @@ cause of most "it was working yesterday" messages.
 | What you see | What it means | Where to look |
 |---|---|---|
 | `conda: command not found` | Terminal opened before the installer finished, or wrong terminal on Windows | [Stage 1](#stage-1--the-four-tools) |
+| `gh` or `git` "not recognized" while `(dsai)` is showing | Tool installed into a different conda environment. They are per-environment | [Git guide](installing-git-and-github-cli.md#troubleshooting) |
+| `destination path ... already exists and is not an empty directory` | You have already cloned it. Clone once, `git pull` thereafter | `cd data-science-ai-course && git pull` |
+| `git pull` refuses, "local changes would be overwritten" | You edited a file that also changed upstream | Copy your version elsewhere, pull, then merge by hand. Ask in Slack rather than forcing |
 | Prompt has no `(dsai)` | Environment not activated | Run `conda activate dsai` |
 | `ModuleNotFoundError` in a terminal | Wrong environment | Check `(dsai)` is in your prompt |
 | `ModuleNotFoundError` in a notebook | Wrong kernel | [Stage 3](#stage-3--vs-code-and-anaconda), Phase 4 |

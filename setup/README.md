@@ -116,6 +116,10 @@ python setup/verify.py
 It checks three things: the command-line tools (`conda`, `git`, `jupyter`), the
 environment you are currently in, and every package the course needs.
 
+`gh` is part of this environment, so it is available whenever `(dsai)` is
+active. Git is not, because you need Git before this environment exists in
+order to clone the repository at all.
+
 Every line should say `OK`. If anything says `MISSING`, the output tells you
 what to run next.
 

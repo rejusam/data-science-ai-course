@@ -68,6 +68,13 @@ dependencies:
   - python-dotenv
   - pytest
 
+  # The GitHub CLI, included so it is present inside this environment.
+  # conda tools are per-environment: installing gh into `base` leaves it
+  # unavailable the moment you `conda activate dsai`, which reads as a broken
+  # install but is not one. Putting it here removes that trap. Installing it
+  # system-wide with winget or brew as well is fine.
+  - gh
+
   - pip:
       # Not packaged on conda-forge, or the pip build is the maintained one.
       - kmodes

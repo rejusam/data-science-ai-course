@@ -14,6 +14,12 @@ not Command Prompt and not PowerShell. On Mac, use **Terminal**.
 GitHub without pasting passwords, and an authenticated link between your laptop
 and your GitHub account.
 
+**Install Git system-wide, not into a conda environment.** You need Git before
+the course environment exists, because Git is how you get the repository that
+`environment.yml` lives in. `gh` is different — it is listed in
+`environment.yml`, so it arrives with the environment, and you only need to
+install it by hand if you want it available outside `dsai` as well.
+
 ---
 
 ## Windows
@@ -51,17 +57,37 @@ git --version
 
 ### 2. Install the GitHub CLI
 
-Pick one.
+**Read this before choosing.** Anything installed with `conda install` goes
+into **whichever environment is currently active**, and nowhere else. Install
+`gh` while you are in `base` and it will disappear the moment you
+`conda activate dsai`, with the message:
+
+```
+gh : The term 'gh' is not recognized as the name of a cmdlet, function,
+script file, or operable program.
+```
+
+That is not a broken install. It is the right tool in the wrong environment.
+
+**Method A — system-wide (recommended).** Works in every environment and every
+terminal:
 
 ```powershell
 winget install --id GitHub.cli -e --source winget
 ```
 
-or
+Then close the terminal and open a new one.
+
+**Method B — into the course environment.** Make sure your prompt shows
+`(dsai)` first:
 
 ```powershell
+conda activate dsai
 conda install -c conda-forge gh
 ```
+
+This works, and it is what to use if `winget` is blocked. Just be aware that
+`gh` will then only exist inside `dsai`.
 
 Check it worked:
 
@@ -208,23 +234,46 @@ git config --list --global
 
 ### Step 2: Log in to GitHub
 
+**Check first.** Your login is stored in the operating system's keyring, not
+inside a conda environment, so it is shared. If you have authenticated on this
+machine before — even from a different environment — you are still logged in:
+
+```bash
+gh auth status
+```
+
+If that shows a tick and your username, skip to Step 3. Running `gh auth login`
+again is harmless but pointless; it will simply tell you
+`You were already logged in to this account`.
+
+Otherwise:
+
 ```bash
 gh auth login
 ```
 
-It asks a short series of questions. Answer with the arrow keys and `Enter`.
-The exact wording varies between versions of `gh`, so match on the sense of the
-question rather than the words:
+Answer with the arrow keys and `Enter`:
 
-| It asks about | Choose |
+| Question | Choose |
 |---|---|
-| Which host | **GitHub.com** |
-| Protocol for Git operations | **HTTPS** |
-| Whether to authenticate Git with your GitHub credentials | **Yes** |
-| How to authenticate | **Login with a web browser** |
+| Where do you use GitHub? | **GitHub.com** |
+| What is your preferred protocol for Git operations on this host? | **HTTPS** |
+| Authenticate Git with your GitHub credentials? | **Yes** |
+| How would you like to authenticate GitHub CLI? | **Login with a web browser** |
 
-Copy the **one-time code** shown in the terminal, press `Enter` to open your
-browser, paste the code, and click **Authorize**.
+It then shows a one-time code that looks like `F627-66E9`. Copy it, press
+`Enter` to open your browser, paste the code, and click **Authorize**.
+
+You should end with:
+
+```
+✓ Authentication complete.
+✓ Configured git protocol
+✓ Logged in as your-username
+```
+
+*Wording is from `gh` 2.97.0 and shifts occasionally between versions. If a
+prompt does not match exactly, answer the one that means the same thing.*
 
 Saying **Yes** to "Authenticate Git with your GitHub credentials" is what stops
 Git asking for a password every time you push. If you missed it, run it
@@ -272,8 +321,26 @@ authenticated, and talking to GitHub.
 completely and open a new one. If you installed with conda, check you are in
 the right environment — `conda activate dsai`.
 
-**`gh: command not found` right after installing.** Same cause, same fix. New
-terminal.
+**`gh: command not found`, or on Windows `The term 'gh' is not recognized as
+the name of a cmdlet`.** Two possible causes, in order of likelihood.
+
+*You are in a different environment from the one you installed it into.* Look
+at the start of your prompt. If it says `(dsai)` and you installed `gh` while
+in `base`, `gh` is not there. Either install it again inside `dsai`, or install
+it system-wide with `winget` so the environment stops mattering:
+
+```powershell
+conda activate dsai
+conda install -c conda-forge gh
+```
+
+*The terminal predates the install.* Close it completely and open a new one.
+
+The same applies to `git` if you installed it with conda rather than the system
+installer. This is the most common confusion in the first fortnight, and it is
+worth understanding rather than working around: conda environments are isolated
+on purpose, and that isolation includes command-line tools, not just Python
+packages.
 
 **Browser does not open during `gh auth login`.** Copy the URL from the
 terminal into a browser manually. The one-time code stays valid.
