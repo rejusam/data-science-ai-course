@@ -65,3 +65,12 @@ checkpoints/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# --- Temporary: session materials held back until after each class ---
+# Untracked so students cannot read ahead; predict-before-you-run only works
+# if the answer is not already on screen. These files still exist locally.
+# Remove these four lines and re-add the files to publish them again.
+modules/01a-programming-fundamentals/notebooks/lab-1-1-python-basics.ipynb
+modules/01a-programming-fundamentals/notebooks/lab-1-2-1-numpy.ipynb
+tools/build_lab_1_1.py
+tools/build_lab_1_2_1.py

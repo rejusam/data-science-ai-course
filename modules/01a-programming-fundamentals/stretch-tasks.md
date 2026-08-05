@@ -11,8 +11,8 @@ anything you have not been taught.
 
 ## Lab 1.1 — Python basics
 
-The stretch tasks live at the bottom of
-[`notebooks/lab-1-1-python-basics.ipynb`](notebooks/lab-1-1-python-basics.ipynb).
+The stretch tasks are at the bottom of the Lab 1.1 notebook, which is
+published here after the session.
 
 In short: write an averaging function without `sum()` or `len()`, make
 `classify_rate` take optional boundaries with sensible defaults, and filter and
