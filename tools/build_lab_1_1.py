@@ -377,17 +377,76 @@ Now a function that uses the record structure from earlier.
     code("""
 def summarise(record):
     \"\"\"One line describing a person in the registry.\"\"\"
-    category = classify_rate(record["resting_hr"])
-    return "{} is {} years old, resting rate {} ({})".format(
-        record["study_code"],
-        record["age"],
-        record["resting_hr"],
-        category,
-    )
+
+    # Step 1: take each field out of the dictionary and give it a name.
+    study_code = record["study_code"]
+    age = record["age"]
+    resting_hr = record["resting_hr"]
+
+    # Step 2: use the function we already wrote.
+    category = classify_rate(resting_hr)
+
+    # Step 3: build the sentence.
+    sentence = f"{study_code} is {age} years old, resting rate {resting_hr} ({category})"
+
+    # Step 4: hand it back to whoever called this function.
+    return sentence
 
 
 for person in cohort:
     print(summarise(person))
+"""),
+
+    md("""
+Notice the `f` before the opening quote. That makes it an **f-string**, and
+anything inside `{ }` is replaced by its value. It is the clearest way to build
+text out of variables, and you will use it constantly.
+
+Written out like that, every step has a name and you can read it top to bottom.
+That is worth something while you are learning, and it is worth something again
+in six months when you have forgotten how it works.
+"""),
+
+    md("""
+### The same function, written shorter
+
+Once you are comfortable, you will often skip the intermediate names and read
+straight from the dictionary.
+"""),
+    predict("Will this print exactly the same lines as the version above?"),
+    code("""
+def summarise_short(record):
+    \"\"\"The same thing, without the intermediate variables.\"\"\"
+    category = classify_rate(record["resting_hr"])
+    return f"{record['study_code']} is {record['age']} years old, resting rate {record['resting_hr']} ({category})"
+
+
+for person in cohort:
+    print(summarise_short(person))
+"""),
+
+    code("""
+# Prove they agree, rather than assuming it.
+for person in cohort:
+    print(summarise(person) == summarise_short(person))
+"""),
+
+    md("""
+Same output, half the lines. Two things to take from the comparison.
+
+**Watch the quotes.** Inside an f-string written with double quotes, the
+dictionary keys have to use single quotes — `record['age']`, not
+`record["age"]`. Matching quotes end the string early, and the error you get
+does not obviously point at the cause.
+
+**Shorter is not automatically better.** The long version is easier to read,
+easier to debug, and easier to change. The short version is quicker to write
+and fine once the logic is settled. Professional code contains both, and
+choosing between them is a judgement, not a rule.
+
+Rewriting working code into a clearer or shorter form, without changing what it
+does, is called **refactoring**. You have just done it, and the check above is
+how you know you did it safely: the behaviour is identical.
 """),
 
     md("""
