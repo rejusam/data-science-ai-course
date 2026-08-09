@@ -2,6 +2,19 @@
 
 One page. Read it once properly and it will save you hours.
 
+## Before you type: work on a copy
+
+Session notebooks come from the course repository, and the course repository
+keeps being updated. Copy a notebook into the `my-work/` folder next to it and
+work on the copy.
+
+That folder is ignored by git, so your work is never committed and `git pull`
+never has to argue with it. In Colab, use **File → Save a copy in Drive**.
+
+Edit the original and the next `git pull` stops with *"Your local changes to the
+following files would be overwritten by merge"*. Recoverable, but a nuisance in
+the middle of a class.
+
 ## The one rule
 
 **Your code works when it runs top to bottom from a fresh start.** Nothing less

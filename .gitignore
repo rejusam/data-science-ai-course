@@ -2,6 +2,12 @@
 # never conflict with course updates.
 scratch/
 
+# Your copies of the session notebooks. Copy a notebook in here before you type
+# in it; then `git pull` can never refuse to run because of your own edits.
+# The folder's own README is tracked so the folder arrives with the repository.
+my-work/*
+!my-work/README.md
+
 # Secrets. If you ever commit one of these, treat the key as leaked and
 # rotate it. Deleting it in a later commit does not remove it from history.
 .env
@@ -74,5 +80,5 @@ desktop.ini
 #     git add <path> && git commit && git push
 # A notebook and the script that builds it come down, and go back, together —
 # the build script holds the same content as the notebook.
-modules/01a-programming-fundamentals/notebooks/lab-1-2-1-numpy.ipynb
-tools/build_lab_1_2_1.py
+modules/01a-programming-fundamentals/notebooks/02-numpy.ipynb
+tools/build_02_numpy.py
