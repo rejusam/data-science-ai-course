@@ -6,8 +6,8 @@ The notebook is a build artefact. Edit this file, not the .ipynb.
 
 Replaces the earlier `lab-1-1-python-basics.ipynb`, which was edited live during
 the session and drifted from its build script (a markdown cell became a raw
-cell, so it stopped rendering). The old file stays in the repository until
-Saturday so that nobody's `git pull` breaks mid-week.
+cell, so it stopped rendering). That file and its build script were removed on
+10 Aug 2026, once this one was published.
 
 Content added here that the session ran out of time for, all of it on the deck:
 comments (slide 9), `input()` (slide 10), `while` with `break`, `continue` and
