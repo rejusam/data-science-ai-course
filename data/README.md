@@ -17,7 +17,7 @@ year, marked active or terminated.
 | Shape | 49,653 rows, 18 columns |
 | Missing values | none |
 
-The dataset page says it is "fictitious/fake data" — nobody in it is real. It is
+The dataset page says it is "fictitious/fake data", so nobody in it is real. It is
 redistributed here under CC0 so that the course works without a Kaggle account
 and without a download, including in Colab and on a locked-down computer.
 
@@ -39,7 +39,7 @@ reading that page is part of the job.
 
 | Column | What it is |
 |---|---|
-| `EmployeeID` | identifier, repeats across years — 6,284 people across 49,653 rows |
+| `EmployeeID` | identifier, repeats across years; 6,284 people across 49,653 rows |
 | `recorddate_key` | the snapshot date this row describes, as text |
 | `birthdate_key`, `orighiredate_key`, `terminationdate_key` | dates, as text |
 | `age`, `length_of_service` | years |
@@ -52,7 +52,7 @@ reading that page is part of the job.
 
 Three things in this file are worth noticing rather than tidying away.
 
-`termreason_desc` says `Resignaton`, missing an `i` — a spelling mistake baked
+`termreason_desc` says `Resignaton`, missing an `i`, a spelling mistake baked
 into the source data.
 
 `terminationdate_key` reads `1/1/1900` on 42,450 of the 48,168 active rows. It

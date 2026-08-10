@@ -7,8 +7,8 @@ with a full-day Saturday intensive every second week, 10am-4pm AEST
 (12pm-6pm NZST). Optional support runs 30 minutes before and after every
 session.
 
-This table is generated from the course delivery plan. If a date here
-disagrees with the official timetable, the official timetable wins.
+This table follows the course delivery plan. If a date here disagrees with the
+official timetable, the official timetable wins.
 
 | Wk | Date | Module | Focus | Lab / activity | Due |
 |---|---|---|---|---|---|

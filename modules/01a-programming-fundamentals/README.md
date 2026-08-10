@@ -56,15 +56,26 @@ jupyter lab
 
 | File | What it is |
 |---|---|
-| [`notebooks/lab-1-1-python-basics.ipynb`](notebooks/lab-1-1-python-basics.ipynb) | Session 2 live-coding notebook and Lab 1.1 |
-| `notebooks/lab-1-2-1-numpy.ipynb` | Session 3 live-coding notebook and Lab 1.2.1. Published after the session |
-| [`ecg_signal.py`](ecg_signal.py) | Generates the simulated ECG signal used in the NumPy session |
-| [`stretch-tasks.md`](stretch-tasks.md) | Extra work for all three labs, for when the core is done |
+| `notebooks/01-python-basics.ipynb` | Session 2: syntax, types, control flow, data structures, functions |
+| `notebooks/02-numpy.ipynb` | Session 3: arrays, vectorisation, boolean indexing, a simulated ECG |
+| `notebooks/03-pandas.ipynb` | Session 4: DataFrames, `loc` and `iloc`, grouping, first charts |
+| `notebooks/04-code-quality-and-testing.ipynb` | Session 5: refactoring, readability, classes, and out to `pytest` |
+| `notebooks/my-work/` | Your copies. Ignored by git, so your edits never block a `git pull` |
+| `pytest-demo/` | Two files and a deliberate bug, for the testing hour in session 5 |
+| [`ecg_signal.py`](ecg_signal.py) | Generates the simulated ECG signal used from session 3 onwards |
+| [`stretch-tasks.md`](stretch-tasks.md) | Extra work for each session, for when the core is done |
 
-**Each lab notebook appears here after its session, not before.** Several of the
+Session 4 also uses [`../../data/employee-attrition.csv`](../../data/employee-attrition.csv),
+which is in the repository already. See [`../../data/README.md`](../../data/README.md)
+for where it came from and what is odd about it.
+
+**Each notebook appears here after its session, not before.** Several of the
 exercises ask you to predict what a piece of code will do before running it,
 and that only teaches you something if you have not already seen the answer.
 You will be given the notebook in class.
+
+Before you type in one, copy it into `notebooks/my-work/` and work on the copy.
+The reason is in [`../../resources/notebook-hygiene.md`](../../resources/notebook-hygiene.md).
 
 Read [`../../resources/notebook-hygiene.md`](../../resources/notebook-hygiene.md)
 before the first lab. It is one page and it prevents the most common source of

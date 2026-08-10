@@ -97,11 +97,12 @@ profile is what employers actually look at.
 ## Stage 5 — Ready to work
 
 - [ ] Read [`notebook-hygiene.md`](notebook-hygiene.md). One page, five minutes.
-- [ ] Open `modules/01a-programming-fundamentals/notebooks/lab-1-1-python-basics.ipynb`
+- [ ] Copy `modules/01a-programming-fundamentals/notebooks/01-python-basics.ipynb`
+      into the `my-work/` folder beside it, and open the copy
 - [ ] Run **Restart & Run All**. It should complete without stopping.
 
-That notebook contains three cells that are broken on purpose, so you will see
-three red tracebacks. That is expected and the notebook keeps running past
+That notebook contains five cells that are broken on purpose, so you will see
+five red tracebacks. That is expected and the notebook keeps running past
 them. Reading errors is a skill this course teaches deliberately.
 
 ---

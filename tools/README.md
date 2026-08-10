@@ -6,7 +6,15 @@ Small, tested utilities used by the course notebooks.
 |---|---|
 | `slidea.py` | Parses a Slidea poll export into tidy DataFrames |
 | `build_cohort_notebook.py` | Generates `modules/00-orientation/notebooks/your-cohort-in-data.ipynb` |
+| `build_01_python_basics.py` | Generates the session 2 notebook |
+| `build_02_numpy.py` | Generates the session 3 notebook |
+| `build_03_pandas.py` | Generates the session 4 notebook |
+| `build_04_code_quality.py` | Generates the session 5 notebook |
 | `tests/` | Tests for the above |
+
+Every notebook in `modules/` is a build artefact. **Edit the script, never the
+`.ipynb`.** Each build script holds the same content as its notebook, so a
+notebook and its script are published together or held back together.
 
 ```
 python3 -m pytest tools/tests -q
