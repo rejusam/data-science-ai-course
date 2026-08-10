@@ -113,7 +113,7 @@ runs top to bottom from a fresh start, and nothing less counts.
     code(SETUP.format(ecg_source())),
 
     md("""
-## 0. Finishing Wednesday: functions
+## 0. Finishing Wednesday: functions  *(slide 15)*
 
 We stopped last session at data structures, which leaves functions unfinished.
 Tonight needs them. From section 5 onward everything you call is a function,
@@ -277,7 +277,7 @@ the notebook cannot see inside the function.
 """),
 
     md("""
-## 1. Why NumPy exists
+## 1. Why NumPy exists  *(slides 23, 44)*
 
 You already have lists. Here is what you gain by giving them up.
 
@@ -317,7 +317,7 @@ numbers, there is usually an array operation that does it better.
 """),
 
     md("""
-## 2. Making arrays
+## 2. Making arrays  *(slide 23)*
 
 Four ways you will use constantly.
 """),
@@ -340,7 +340,7 @@ ECG signal below gets its timestamps.
 """),
 
     md("""
-## 3. What an array knows about itself
+## 3. What an array knows about itself  *(slide 45)*
 
 Every attribute on tonight's method list, on one array.
 """),
@@ -368,6 +368,76 @@ concrete: `int64` means every element is an integer taking 8 bytes, so a
 6-element array is exactly 48 bytes and NumPy knows where each one sits without
 looking. `data` is that block of memory. You will almost never use it directly,
 but seeing it once explains why arrays are fast and lists are not.
+
+### Choosing a type  *(slides 24, 25)*
+
+Python has one `int`, which grows as large as you need. NumPy has eleven, and
+you pick the size. That is the trade: control and speed, in exchange for having
+to think about it.
+"""),
+    code("""
+print("default from whole numbers  :", np.array([1, 2, 3]).dtype)
+print("default with a decimal      :", np.array([1.0, 2, 3]).dtype)
+print("mixed with text becomes     :", np.array([1, "two", 3]).dtype)
+print()
+
+small = np.array([1, 2, 3], dtype=np.int8)     # 1 byte each, -128 to 127
+large = np.array([1, 2, 3], dtype=np.float64)  # 8 bytes each
+
+print("int8    :", small.dtype, small.itemsize, "byte per element")
+print("float64 :", large.dtype, large.itemsize, "bytes per element")
+"""),
+
+    md("""
+An `int8` holds one byte, which runs from -128 to 127. So what happens to 300?
+
+### Deliberate error two
+"""),
+    predict("`np.array([300], dtype=np.int8)` — error, or some other number?"),
+    breaks("""
+np.array([300], dtype=np.int8)
+"""),
+
+    md("""
+`OverflowError: Python integer 300 out of bounds for int8`
+
+NumPy refuses, which is the friendly outcome. Now the same idea by a different
+route, where it does not refuse.
+"""),
+    code("""
+print("300 converted with astype :", np.array([300]).astype(np.int8)[0])
+
+a = np.array([120], dtype=np.int8)
+print("120 + 10 as int8          :", (a + np.int8(10))[0])
+
+print("1.7 and 2.9 to int8       :", np.array([1.7, 2.9]).astype(np.int8))
+"""),
+
+    md("""
+`44`, `-126`, and `[1 2]`. No error, no warning, three wrong answers.
+
+Asking for the conversion with `astype` means you asserted it was safe, and
+arithmetic that runs off the end of a type wraps around rather than complaining.
+Converting floats to integers truncates rather than rounding, so 2.9 becomes 2.
+
+That is the cost of choosing a type: it buys speed and memory, and it hands you
+the responsibility. It matters when a dataset is large enough that eight bytes
+per number is real money, and it is a genuine source of bugs in the wild.
+
+**Missing numbers are a type problem too.** There is no such thing as a missing
+integer in NumPy: `np.nan` is a float, so any array with a gap in it becomes a
+float array. pandas is built on this, which is why an integer column with one
+blank value arrives on Wednesday as `float64`.
+"""),
+    code("""
+print("nan is a          :", type(np.nan).__name__)
+print("array with a gap  :", np.array([1, 2, np.nan]).dtype)
+print("nan == nan        :", np.nan == np.nan, "  <- use np.isnan(), never ==")
+print("isnan             :", np.isnan(np.array([1, 2, np.nan])))
+"""),
+
+    md("""
+### Axes
 
 **Axis 0 runs down the rows. Axis 1 runs across the columns.** Getting these
 the wrong way round is the most common NumPy mistake, and you will meet it
@@ -398,7 +468,7 @@ not the shape you assumed.
 """),
 
     md("""
-## 4. Arithmetic without loops
+## 4. Arithmetic without loops  *(slide 44)*
 
 Operations apply to every element at once.
 """),
@@ -445,7 +515,7 @@ Read the shapes in that error message. They tell you exactly what you gave it.
                "and what `dtype` buys you."),
 
     md("""
-## 5. A real signal
+## 5. A real signal  *(slide 23)*
 
 Now something with more than five numbers in it.
 
@@ -480,7 +550,7 @@ notebook builds up to.
 """),
 
     md("""
-## 6. Summarising
+## 6. Summarising  *(slide 45)*
 
 Every aggregation on tonight's method list, on real data.
 """),
@@ -508,7 +578,7 @@ print(np.cumsum([1, 2, 3, 4]))
 """),
 
     md("""
-## 7. Boolean indexing
+## 7. Boolean indexing  *(slide 44)*
 
 This is the most useful idea in NumPy, and it replaces most loops you would
 otherwise write, including the one you reordered at the start of tonight.
@@ -545,7 +615,7 @@ print("largest 5 values     :", np.round(np.sort(signal)[-5:], 3))
 """),
 
     md("""
-## 8. `np.where`, and finding the heartbeats
+## 8. `np.where`, and finding the heartbeats  *(slide 44)*
 
 `np.where` gives the **positions** where a condition is true, rather than the
 values. That difference matters here: we want to know *when* each beat
@@ -585,7 +655,7 @@ plt.show()
 """),
 
     md("""
-## 9. From peaks to a heart rate
+## 9. From peaks to a heart rate  *(slide 44)*
 
 The gap between consecutive peaks is one heartbeat. `np.diff` gives the
 differences between neighbouring elements.
@@ -635,7 +705,7 @@ was never true.
     md("""
 ---
 
-## Your turn
+## Your turn  *(slide 45)*
 
 Core tasks first. Work in your pair and swap roles halfway: one explains, the
 other types.

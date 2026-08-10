@@ -6,15 +6,34 @@ Small, tested utilities used by the course notebooks.
 |---|---|
 | `slidea.py` | Parses a Slidea poll export into tidy DataFrames |
 | `build_cohort_notebook.py` | Generates `modules/00-orientation/notebooks/your-cohort-in-data.ipynb` |
+| `build_00_tools_and_environments.py` | Generates the tools and environments notebook |
 | `build_01_python_basics.py` | Generates the session 2 notebook |
 | `build_02_numpy.py` | Generates the session 3 notebook |
 | `build_03_pandas.py` | Generates the session 4 notebook |
 | `build_04_code_quality.py` | Generates the session 5 notebook |
+| `build_slide_map.py` | Writes `modules/01a-programming-fundamentals/slide-map.md` |
 | `tests/` | Tests for the above |
 
 Every notebook in `modules/` is a build artefact. **Edit the script, never the
 `.ipynb`.** Each build script holds the same content as its notebook, so a
 notebook and its script are published together or held back together.
+
+## Keeping the notebooks matched to a deck
+
+Each session notebook is the interactive counterpart of a slide deck, and every
+section heading that covers deck material carries its slide numbers:
+
+```
+## 6. Data structures  *(slide 14)*
+## 8. Charts  *(slides 26, 30)*
+## 0. What programming actually is  *(slides 4 to 8)*
+```
+
+`build_slide_map.py` reads those headings back out and writes a table of which
+slide is covered where, listing anything with no counterpart as a gap. Run it
+after changing any notebook. When a deck for a new module arrives, copy the
+script, point `MODULE`, `DECK` and `DECK_SLIDES` at the new one, and the
+uncovered list tells you what still needs writing.
 
 ```
 python3 -m pytest tools/tests -q

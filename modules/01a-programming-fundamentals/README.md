@@ -56,6 +56,7 @@ jupyter lab
 
 | File | What it is |
 |---|---|
+| `notebooks/00-tools-and-environments.ipynb` | Which Python am I running, environments, packages, what is installed. Run it when something "works on their machine" |
 | `notebooks/01-python-basics.ipynb` | Session 2: syntax, types, control flow, data structures, functions |
 | `notebooks/02-numpy.ipynb` | Session 3: arrays, vectorisation, boolean indexing, a simulated ECG |
 | `notebooks/03-pandas.ipynb` | Session 4: DataFrames, `loc` and `iloc`, grouping, first charts |

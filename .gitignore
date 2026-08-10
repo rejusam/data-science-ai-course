@@ -80,6 +80,9 @@ desktop.ini
 #     git add <path> && git commit && git push
 # A notebook and the script that builds it come down, and go back, together —
 # the build script holds the same content as the notebook.
+# The slide map lists every section heading, including ones in notebooks that
+# have not been taught yet. It goes out with the last notebook of the module.
+modules/01a-programming-fundamentals/slide-map.md
 modules/01a-programming-fundamentals/notebooks/03-pandas.ipynb
 tools/build_03_pandas.py
 modules/01a-programming-fundamentals/notebooks/04-code-quality-and-testing.ipynb

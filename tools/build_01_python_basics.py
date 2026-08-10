@@ -107,7 +107,81 @@ From the menu: **Kernel → Restart Kernel and Run All Cells**. In Colab:
 """),
 
     md("""
-## 1. Your first cell, and how to leave notes
+## 0. What programming actually is  *(slides 4 to 8)*
+
+Programming is writing down a set of instructions precisely enough that a
+machine can follow them. The hard part is almost never the typing.
+
+The deck separates two words that get used interchangeably. **Programming** is
+working out what the steps are, and it is language-independent. **Coding** is
+writing those steps in a particular language. You can be good at one and bad at
+the other, and the expensive mistakes live on the programming side.
+
+A program takes an **input** and produces an **output**. Everything in this
+course is that shape, from tonight's five-line cell to the capstone.
+
+Slide 7 gives a loop for problems that are not obvious: **define, decompose,
+search, verify**. Here it is on something small enough to see all of at once.
+"""),
+
+    md("""
+**Define.** "Find the unusual readings" is not yet a problem a machine can
+solve. What counts as unusual? Say it exactly:
+
+> Given a list of resting heart rates, return the ones below 60 or above 100.
+
+That sentence is the specification. Writing it is programming; everything after
+it is coding.
+
+**Decompose.** Three steps, each of which you could do on paper:
+
+1. look at each reading in turn
+2. decide whether it is outside the range
+3. keep the ones that are
+
+**Search.** Try it.
+"""),
+    code("""
+readings = [68, 72, 91, 105, 58]
+
+unusual = []
+for reading in readings:            # 1. each in turn
+    if reading < 60 or reading > 100:   # 2. decide
+        unusual.append(reading)     # 3. keep it
+
+print("input :", readings)
+print("output:", unusual)
+"""),
+
+    md("""
+**Verify.** Not "it printed something", but "it printed the right something".
+Check a case you can work out in your head, including an awkward one.
+"""),
+    code("""
+assert unusual == [105, 58]
+
+# The awkward cases: nothing unusual, and everything unusual.
+def find_unusual(values):
+    return [v for v in values if v < 60 or v > 100]
+
+assert find_unusual([70, 80, 90]) == []
+assert find_unusual([30, 200]) == [30, 200]
+assert find_unusual([]) == []
+
+print("verified on four cases, including the empty one")
+"""),
+
+    md("""
+That is the whole loop, and you will run it hundreds of times over the next
+twenty-five weeks. The step people skip is the first one, and skipping it is
+what produces code that runs beautifully and answers the wrong question.
+
+The rest of tonight is the coding half: the syntax you need so that the steps
+you have worked out can actually be typed.
+"""),
+
+    md("""
+## 1. Your first cell, and how to leave notes  *(slide 9)*
 
 `print()` displays something. Run this.
 """),
@@ -137,7 +211,7 @@ print(readings)
 """),
 
     md("""
-## 2. Variables
+## 2. Variables  *(slide 11)*
 
 A variable is a name for a value. You make one with `=`.
 
@@ -213,7 +287,7 @@ print(int("5") + 5)     # number: 10
 """),
 
     md("""
-### Getting something in, getting something out
+### Getting something in, getting something out  *(slide 10)*
 
 `print()` is output. `input()` is the other direction: it stops, waits for
 someone to type, and hands back what they typed.
@@ -246,7 +320,7 @@ is worth meeting once.
 """),
 
     md("""
-## 3. Operators
+## 3. Operators  *(slide 12)*
 
 Arithmetic works how you would expect, with two worth noting: `**` is power
 and `%` is remainder.
@@ -294,7 +368,7 @@ said `invalid syntax` and left you to work it out.
 """),
 
     md("""
-## 4. Making decisions
+## 4. Making decisions  *(slide 13)*
 
 `if` runs a block when a condition is true. `elif` and `else` handle the other
 cases.
@@ -354,7 +428,7 @@ you run it.
 """),
 
     md("""
-## 5. Repeating things
+## 5. Repeating things  *(slide 13)*
 
 A `for` loop repeats once for each item in a collection.
 """),
@@ -434,7 +508,7 @@ for reading in readings:
                "does `pass` do?"),
 
     md("""
-## 6. Data structures
+## 6. Data structures  *(slide 14)*
 
 Four ways to hold more than one thing.
 
@@ -555,7 +629,7 @@ for person in cohort:
 """),
 
     md("""
-## 7. Functions
+## 7. Functions  *(slide 15)*
 
 A function is a named piece of code you can run again with different inputs.
 
@@ -785,7 +859,7 @@ how you know you did it safely: the behaviour is identical.
     md("""
 ---
 
-## Your turn
+## Your turn  *(slide 33)*
 
 Work in your breakout pair. One of you types, the other explains what to type.
 Swap halfway. If you are the more confident one, take the explaining role
