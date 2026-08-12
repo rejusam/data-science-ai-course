@@ -606,12 +606,89 @@ counter, one line. On a million elements it is not close.
 
 On the signal:
 """),
+    predict("The recording is 10 seconds at 72 beats per minute, so there are "
+            "12 heartbeats in it. `signal > 0.6` is above the threshold only "
+            "at the peaks. So what number does `high.sum()` print?"),
     code("""
 high = signal > 0.6
 
 print("samples above 0.6 mV :", high.sum())
 print("as a fraction        : {:.2%}".format(high.mean()))
 print("largest 5 values     :", np.round(np.sort(signal)[-5:], 3))
+"""),
+
+    md("""
+52, and there are 12 heartbeats. If you answered 12, read the label again: it
+says **samples**, not beats.
+
+The recording is 250 samples per second, and each R peak stays above 0.6 mV for
+about a fiftieth of a second, so each beat contributes four or five samples in a
+row. Twelve beats, four to five samples each, 52 samples. The mask never counted
+beats. It counted measurements, which is all it was ever asked to do.
+
+This is the whole difficulty with measured data, and it is worth being annoyed
+by it now rather than in your project. The array knows about samples. *Beat* is
+a thing you mean, not a thing the array holds, and nothing here will warn you
+when you conflate the two — the answer is a plausible number either way. Had the
+threshold been 0.5 mV the count would have changed again, without a single beat
+being added or removed.
+
+So read the fraction the same careful way. 2.08% is the share of *samples* that
+sit above the threshold, and because the samples are evenly spaced that is also
+the share of the ten seconds spent above it — about a fifth of a second in
+total. It is not 2% of the beats.
+
+Getting from 52 to 12 means asking a different question: not *which samples are
+high* but *where does each run of high samples begin*. That is section 8.
+"""),
+
+    md("""
+### Reading the third line
+
+`np.round(np.sort(signal)[-5:], 3)` is four operations stacked in one
+expression. Take them from the inside out, which is the order they run in.
+
+**`np.sort(signal)` puts the values in ascending order**, smallest first. It
+hands back a *new* array and leaves `signal` exactly as it was — worth checking
+yourself with a print either side. Its twin `signal.sort()` does the same job
+in place: no return value, and your original ordering is gone for good. One
+character of difference, and one of them cannot be undone. Reach for
+`np.sort()` unless you have a reason not to.
+
+**`[-5:]` is a slice.** Two rules combine in it:
+
+- A negative index counts back from the end. `s[-1]` is the last value,
+  `s[-5]` the fifth from last. Handy because you rarely know the length.
+- A colon means *a range*, and a missing side means *all the way*. `s[-5:]`
+  reads "from five before the end, to the end".
+
+Because the array is now sorted ascending, the last five are the largest five.
+That is the whole trick — sorting is what turns "the end" into "the largest".
+
+Some neighbours, on the sorted array:
+
+| Written | Gives | Why |
+|---|---|---|
+| `s[-5:]` | the 5 largest, ascending | last five of an ascending array |
+| `s[:5]` | the 5 smallest | first five |
+| `s[5]` | one value, the 6th | no colon, so a single element, not an array |
+| `s[-5]` | one value, the 5th largest | still no colon |
+| `s[:]` | all 2500, as a copy | both sides missing |
+
+Note `s[5]` and `s[-5]` have no colon and so are not arrays at all — they are
+single numbers. `s[-5]` prints `1.169`; `s[-5:]` prints
+`[1.169 1.19 1.191 1.198 1.203]`. A one-character edit changes the *type* of
+the result, which is usually where the next error comes from.
+
+**`np.round(..., 3)`** then trims to three decimals, for reading only. The
+underlying values keep their full precision; nothing is lost, and nothing is
+fixed either.
+
+> **Question to carry into section 8.** Those five values are all between 1.169
+> and 1.203 mV, and we know the recording holds twelve beats. Do the five come
+> from five *different* beats, or could two of them be neighbouring samples on
+> the same beat? Decide what you think, then say what you would have to print
+> to settle it — and whether this output can settle it at all.
 """),
 
     md("""
