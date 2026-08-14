@@ -72,17 +72,21 @@ checkpoints/
 Thumbs.db
 desktop.ini
 
+# Course tooling. The build scripts, their tests and the report generators are
+# the trainer's, not course material. They stay out of the published repository:
+# a build script holds the same content as the notebook it writes, so an
+# unpublished one is a spoiler in a second place that has to be remembered.
+# Keeping the whole folder private removes that second place.
+tools/
+
 # --- Session materials held back until their class has run ---
 # Untracked so students cannot read ahead; predict-before-you-run only works
 # if the answer is not already on screen. These files still exist locally.
 #
 # To publish one after its session has run, delete its line below, then:
 #     git add <path> && git commit && git push
-# A notebook and the script that builds it come down, and go back, together —
-# the build script holds the same content as the notebook.
 # The slide map lists every section heading, including ones in notebooks that
 # have not been taught yet. It goes out with the last notebook of the module.
 modules/01a-programming-fundamentals/slide-map.md
 modules/01a-programming-fundamentals/notebooks/04-code-quality-and-testing.ipynb
-tools/build_04_code_quality.py
 modules/01a-programming-fundamentals/pytest-demo/
