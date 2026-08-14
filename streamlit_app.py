@@ -520,7 +520,7 @@ with st.sidebar:
         "The export arrives as a single spreadsheet holding twenty-five "
         "stacked blocks in four different shapes, with headers off the first "
         "row and percentages stored as text. The parser that untangles it is "
-        "`tools/slidea.py`, and it has seventeen tests."
+        "a parser module, and it has seventeen tests."
     )
 
     st.subheader("Privacy")

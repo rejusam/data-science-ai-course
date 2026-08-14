@@ -18,10 +18,8 @@ Reports are generated, not hand-edited. Prose lives in `report.template.html`
 with `{{chart-name.svg}}` placeholders; charts are generated separately and
 inlined at build time.
 
-```
-python3 tools/make_report_charts.py     # regenerates reports/session1/charts/*.svg
-python3 tools/build_report.py           # inlines them into index.html
-```
+The two build steps run from the trainer's copy of the course tooling, which is
+not published in this repository.
 
 Both steps are deterministic: rerunning them without changing the data or the
 code produces a byte-identical file, so git diffs only show real changes.
