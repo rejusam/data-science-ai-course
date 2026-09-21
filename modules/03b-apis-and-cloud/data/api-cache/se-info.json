@@ -1,0 +1,22 @@
+{
+ "items": [
+  {
+   "new_active_users": 0,
+   "total_users": 31544024,
+   "badges_per_minute": 5.78,
+   "total_badges": 55096986,
+   "total_votes": 216188103,
+   "total_comments": 118519014,
+   "answers_per_minute": 3.79,
+   "questions_per_minute": 2.54,
+   "total_answers": 36101478,
+   "total_accepted": 12396496,
+   "total_unanswered": 7216044,
+   "total_questions": 24247162,
+   "api_revision": "2026.5.26.43284"
+  }
+ ],
+ "has_more": false,
+ "quota_max": 300,
+ "quota_remaining": 276
+}

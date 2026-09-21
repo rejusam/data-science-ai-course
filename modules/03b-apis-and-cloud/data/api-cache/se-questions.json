@@ -1,0 +1,315 @@
+{
+ "items": [
+  {
+   "tags": [
+    "python",
+    "iterator",
+    "generator",
+    "yield"
+   ],
+   "owner": {
+    "account_id": 9828,
+    "reputation": 148434,
+    "user_id": 18300,
+    "user_type": "registered",
+    "accept_rate": 92,
+    "profile_image": "https://i.sstatic.net/jcyI4.jpg?s=256",
+    "display_name": "Alex. S.",
+    "link": "https://stackoverflow.com/users/18300/alex-s"
+   },
+   "is_answered": true,
+   "view_count": 3498955,
+   "protected_date": 1360547307,
+   "accepted_answer_id": 231855,
+   "answer_count": 51,
+   "score": 13134,
+   "last_activity_date": 1777574627,
+   "creation_date": 1224800471,
+   "last_edit_date": 1711253482,
+   "question_id": 231767,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do-in-python",
+   "title": "What does the &quot;yield&quot; keyword do in Python?"
+  },
+  {
+   "tags": [
+    "python",
+    "namespaces",
+    "program-entry-point",
+    "python-module",
+    "idioms"
+   ],
+   "owner": {
+    "account_id": 21259,
+    "reputation": 185051,
+    "user_id": 51518,
+    "user_type": "registered",
+    "accept_rate": 86,
+    "profile_image": "https://www.gravatar.com/avatar/eb5a95cb1be342c4089183cd8232a7f2?s=256&d=identicon&r=PG",
+    "display_name": "Devoted",
+    "link": "https://stackoverflow.com/users/51518/devoted"
+   },
+   "is_answered": true,
+   "view_count": 5040774,
+   "protected_date": 1365246276,
+   "accepted_answer_id": 419185,
+   "answer_count": 40,
+   "score": 8442,
+   "last_activity_date": 1758558013,
+   "creation_date": 1231301460,
+   "last_edit_date": 1668391615,
+   "question_id": 419163,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/419163/what-does-if-name-main-do",
+   "title": "What does if __name__ == &quot;__main__&quot;: do?"
+  },
+  {
+   "tags": [
+    "python",
+    "operators",
+    "conditional-operator"
+   ],
+   "owner": {
+    "account_id": 21259,
+    "reputation": 185051,
+    "user_id": 51518,
+    "user_type": "registered",
+    "accept_rate": 86,
+    "profile_image": "https://www.gravatar.com/avatar/eb5a95cb1be342c4089183cd8232a7f2?s=256&d=identicon&r=PG",
+    "display_name": "Devoted",
+    "link": "https://stackoverflow.com/users/51518/devoted"
+   },
+   "is_answered": true,
+   "view_count": 3142474,
+   "protected_date": 1370841342,
+   "accepted_answer_id": 394814,
+   "answer_count": 32,
+   "score": 8128,
+   "last_activity_date": 1755865373,
+   "creation_date": 1230366738,
+   "last_edit_date": 1654483962,
+   "question_id": 394809,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator",
+   "title": "Does Python have a ternary conditional operator?"
+  },
+  {
+   "tags": [
+    "python",
+    "oop",
+    "metaclass",
+    "python-class",
+    "python-datamodel"
+   ],
+   "owner": {
+    "account_id": 6018,
+    "reputation": 601931,
+    "user_id": 9951,
+    "user_type": "registered",
+    "accept_rate": 78,
+    "profile_image": "https://i.sstatic.net/CIFG8.png?s=256",
+    "display_name": "Bite code",
+    "link": "https://stackoverflow.com/users/9951/bite-code"
+   },
+   "is_answered": true,
+   "view_count": 1265741,
+   "protected_date": 1350585760,
+   "accepted_answer_id": 100146,
+   "answer_count": 27,
+   "score": 7535,
+   "last_activity_date": 1788011819,
+   "creation_date": 1221804646,
+   "last_edit_date": 1675831759,
+   "question_id": 100003,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/100003/what-are-metaclasses-in-python",
+   "title": "What are metaclasses in Python?"
+  },
+  {
+   "tags": [
+    "python",
+    "file",
+    "file-exists"
+   ],
+   "owner": {
+    "account_id": 8617,
+    "reputation": 80849,
+    "user_id": 15616,
+    "user_type": "registered",
+    "accept_rate": 83,
+    "profile_image": "https://www.gravatar.com/avatar/1d502f7932af0a41d8ff6ab5d9cf3406?s=256&d=identicon&r=PG",
+    "display_name": "spence91",
+    "link": "https://stackoverflow.com/users/15616/spence91"
+   },
+   "is_answered": true,
+   "view_count": 6107430,
+   "protected_date": 1370841219,
+   "answer_count": 41,
+   "score": 7350,
+   "last_activity_date": 1789161093,
+   "creation_date": 1221656100,
+   "last_edit_date": 1616874145,
+   "question_id": 82831,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-without-exceptions",
+   "title": "How do I check whether a file exists without exceptions?"
+  },
+  {
+   "tags": [
+    "python",
+    "dictionary",
+    "merge"
+   ],
+   "owner": {
+    "account_id": 2310,
+    "reputation": 127631,
+    "user_id": 3207,
+    "user_type": "registered",
+    "accept_rate": 100,
+    "profile_image": "https://www.gravatar.com/avatar/b1f36e554be0e1ae19f9a74d6ece9107?s=256&d=identicon&r=PG",
+    "display_name": "Carl Meyer",
+    "link": "https://stackoverflow.com/users/3207/carl-meyer"
+   },
+   "is_answered": true,
+   "view_count": 3685370,
+   "protected_date": 1392127410,
+   "accepted_answer_id": 61116810,
+   "answer_count": 45,
+   "score": 7126,
+   "last_activity_date": 1787080400,
+   "creation_date": 1220341470,
+   "last_edit_date": 1676185398,
+   "question_id": 38987,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/38987/how-do-i-merge-two-dictionaries-in-a-single-expression-in-python",
+   "title": "How do I merge two dictionaries in a single expression in Python?"
+  },
+  {
+   "tags": [
+    "python",
+    "shell",
+    "terminal",
+    "subprocess",
+    "command"
+   ],
+   "owner": {
+    "account_id": 9288,
+    "reputation": 64729,
+    "user_id": 17085,
+    "user_type": "registered",
+    "accept_rate": 89,
+    "profile_image": "https://www.gravatar.com/avatar/d386a6f2f3dda7bcf7f1e11c2171946b?s=256&d=identicon&r=PG",
+    "display_name": "freshWoWer",
+    "link": "https://stackoverflow.com/users/17085/freshwower"
+   },
+   "is_answered": true,
+   "view_count": 5255404,
+   "protected_date": 1366143800,
+   "accepted_answer_id": 89243,
+   "answer_count": 66,
+   "score": 6296,
+   "last_activity_date": 1777035882,
+   "creation_date": 1221701730,
+   "last_edit_date": 1671066365,
+   "question_id": 89228,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/89228/how-do-i-execute-a-program-or-call-a-system-command",
+   "title": "How do I execute a program or call a system command?"
+  },
+  {
+   "tags": [
+    "python",
+    "exception",
+    "path",
+    "directory",
+    "operating-system"
+   ],
+   "owner": {
+    "account_id": 7495,
+    "reputation": 107130,
+    "user_id": 13055,
+    "user_type": "registered",
+    "accept_rate": 68,
+    "profile_image": "https://www.gravatar.com/avatar/ab82fd8b5ffe4d09c2bb5f9c14d34b09?s=256&d=identicon&r=PG",
+    "display_name": "Parand",
+    "link": "https://stackoverflow.com/users/13055/parand"
+   },
+   "is_answered": true,
+   "view_count": 4061751,
+   "protected_date": 1392127892,
+   "accepted_answer_id": 273227,
+   "answer_count": 28,
+   "score": 5828,
+   "last_activity_date": 1751618433,
+   "creation_date": 1226084205,
+   "last_edit_date": 1682319558,
+   "question_id": 273192,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/273192/how-do-i-create-a-directory-and-any-missing-parent-directories",
+   "title": "How do I create a directory, and any missing parent directories?"
+  },
+  {
+   "tags": [
+    "python",
+    "loops",
+    "list"
+   ],
+   "owner": {
+    "account_id": 21350,
+    "reputation": 334809,
+    "user_id": 51816,
+    "user_type": "registered",
+    "accept_rate": 82,
+    "profile_image": "https://www.gravatar.com/avatar/0e54bb28182bcd9df39704751306df27?s=256&d=identicon&r=PG",
+    "display_name": "Joan Venge",
+    "link": "https://stackoverflow.com/users/51816/joan-venge"
+   },
+   "is_answered": true,
+   "view_count": 5116186,
+   "protected_date": 1458291839,
+   "accepted_answer_id": 522578,
+   "answer_count": 28,
+   "score": 5680,
+   "last_activity_date": 1750779640,
+   "creation_date": 1233960474,
+   "last_edit_date": 1744140192,
+   "question_id": 522563,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/522563/how-can-i-access-the-index-value-in-a-for-loop",
+   "title": "How can I access the index value in a &#39;for&#39; loop?"
+  },
+  {
+   "tags": [
+    "python",
+    "list",
+    "multidimensional-array",
+    "flatten"
+   ],
+   "owner": {
+    "account_id": 38503,
+    "reputation": 55991,
+    "user_id": 110527,
+    "user_type": "registered",
+    "profile_image": "https://www.gravatar.com/avatar/1a3fec384503a3e0b33361f146006598?s=256&d=identicon&r=PG",
+    "display_name": "Emma",
+    "link": "https://stackoverflow.com/users/110527/emma"
+   },
+   "is_answered": true,
+   "view_count": 4707569,
+   "protected_date": 1357910574,
+   "accepted_answer_id": 952952,
+   "answer_count": 32,
+   "score": 5518,
+   "last_activity_date": 1773419529,
+   "creation_date": 1244147405,
+   "last_edit_date": 1773419477,
+   "question_id": 952914,
+   "content_license": "CC BY-SA 4.0",
+   "link": "https://stackoverflow.com/questions/952914/how-do-i-make-a-flat-list-out-of-a-list-of-lists",
+   "title": "How do I make a flat list out of a list of lists?"
+  }
+ ],
+ "has_more": true,
+ "quota_max": 300,
+ "quota_remaining": 276
+}
