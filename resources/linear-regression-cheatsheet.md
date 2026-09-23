@@ -8,80 +8,6 @@ is the actual work, and it is where marks and jobs are won or lost.
 
 ## The flowchart
 
-```
-                    ┌─────────────────────────────┐
-                    │  What am I predicting, and  │
-                    │  in what units?             │
-                    └──────────────┬──────────────┘
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │  One row per thing being    │
-                    │  predicted                  │
-                    └──────────────┬──────────────┘
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │  Real units. Plot it.       │
-                    │  Missing values dealt with  │
-                    └──────────────┬──────────────┘
-                                   ▼
-                        ╱──────────────────╲
-                      ╱  Do the rows have    ╲  yes   ┌────────────────────┐
-                     ◄   a natural order?     ►─────► │  Split by time:    │
-                      ╲  dates, versions...  ╱        │  train on earlier  │
-                        ╲────────┬─────────╱          └─────────┬──────────┘
-                                 │ no                           │
-                                 ▼                              │
-                    ┌─────────────────────────────┐             │
-                    │  train_test_split, 80/20,   │             │
-                    │  random_state fixed         │             │
-                    └──────────────┬──────────────┘             │
-                                   │                            │
-                                   ├◄───────────────────────────┘
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │  BASELINE: how wrong is     │
-                    │  predicting the average?    │
-                    │  Write the number down      │
-                    └──────────────┬──────────────┘
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │  fit on train only,         │
-                    │  predict on test            │
-                    └──────────────┬──────────────┘
-                                   ▼
-                        ╱──────────────────╲
-                      ╱  Does it beat the    ╲  no    ┌────────────────────┐
-                     ◄   baseline on the      ►─────► │  See "when it      │
-                      ╲  held-back rows?     ╱        │  goes wrong" below │
-                        ╲────────┬─────────╱          └────────────────────┘
-                                 │ yes
-                                 ▼
-                    ┌─────────────────────────────┐
-                    │  Read every coefficient     │
-                    │  out loud, with its units   │
-                    └──────────────┬──────────────┘
-                                   ▼
-                        ╱──────────────────╲
-                      ╱  Any sign or size    ╲  yes   ┌────────────────────┐
-                     ◄   that surprises you?  ►─────► │  Investigate       │
-                      ╲                      ╱        │  before shipping   │
-                        ╲────────┬─────────╱          └────────────────────┘
-                                 │ no
-                                 ▼
-                    ┌─────────────────────────────┐
-                    │  Plot the residuals. A      │
-                    │  pattern means something    │
-                    │  is missing                 │
-                    └──────────────┬──────────────┘
-                                   ▼
-                    ┌─────────────────────────────┐
-                    │  Predict, with a range,     │
-                    │  and say what you do not    │
-                    │  trust about it             │
-                    └─────────────────────────────┘
-```
-
-Viewing this on GitHub, the same flow renders as a diagram:
 
 ```mermaid
 flowchart TD
@@ -218,5 +144,4 @@ Say these five sentences out loud. If you cannot, you are not done.
 
 - `modules/04-regression/notebooks/regression-basics.ipynb` — the line, the cost
   function, the matrix form, train and test splits
-- `17b-lab-bike-demand.ipynb` — the whole cycle end to end, on real hire data
 - Module 4 Part 2 — R², overfitting, feature selection, regularisation
