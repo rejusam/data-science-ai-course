@@ -118,6 +118,46 @@ the same output as above. Any number works; 42 is only a habit.
   error*: "mean" means average, and "absolute" means a miss counts the same
   whether it is too high or too low.
 
+## What the model stores after fitting
+
+`fit` saves what it learned inside the model. You read it back by name. Every
+name ends in an underscore `_`, which is scikit-learn's sign for "this only
+exists after `fit`".
+
+| Name | What it holds | In this example |
+|---|---|---|
+| `model.intercept_` | The start: one number | `29.78` |
+| `model.coef_` | The slopes: one for each column you gave it | `[5.45]` |
+| `model.feature_names_in_` | The names of those columns, in the same order as the slopes | `['hours']` |
+| `model.n_features_in_` | How many columns it learned from | `1` |
+
+`coef_` is a list even when there is only one column, which is why the code
+above writes `model.coef_[0]` to get the first (and only) slope.
+
+To see them all, after the code above has run:
+
+```python
+print(model.intercept_)
+print(model.coef_)
+print(model.feature_names_in_)
+print(model.n_features_in_)
+```
+
+```
+29.78448275862069
+[5.44827586]
+['hours']
+1
+```
+
+Ask for any of them before `fit` and Python stops with:
+
+```
+AttributeError: 'LinearRegression' object has no attribute 'coef_'
+```
+
+That message means "fit the model first".
+
 ## Three traps
 
 1. **Never test on the rows the model learned from.** It has seen those
@@ -127,3 +167,76 @@ the same output as above. Any number works; 42 is only a habit.
    examples you had.
 3. **A line is not a reason.** The data shows that students who studied more
    got higher marks. It does not prove that the studying caused the marks.
+
+## Extension: more than one column
+
+A mark depends on more than study time. Add a second column, the hours each
+student slept the night before (also made up), and the line gets one more
+part:
+
+```
+mark = start + slope for hours × hours + slope for sleep × sleep
+```
+
+The code is the same as before except for the data and the line that picks
+the columns:
+
+```python
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_absolute_error
+
+# The same students, plus the hours each one slept the night before
+data = pd.DataFrame({
+    "hours": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "sleep": [6, 7, 9, 5, 8, 7, 5, 8, 5, 8],
+    "mark":  [35, 41, 48, 50, 58, 62, 66, 74, 77, 85],
+})
+X = data[["hours", "sleep"]]   # the only line that changes: two columns now
+y = data["mark"]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+guesses = model.predict(X_test)
+
+print("Start (intercept):", round(model.intercept_, 2))
+for name, slope in zip(model.feature_names_in_, model.coef_):
+    print("Slope for", name, ":", round(slope, 2))
+print("Real marks:", list(y_test))
+print("Guesses:", [round(float(g), 1) for g in guesses])
+print("Average miss (MAE):", round(mean_absolute_error(y_test, guesses), 1))
+```
+
+What it prints:
+
+```
+Start (intercept): 24.22
+Slope for hours : 5.36
+Slope for sleep : 0.87
+Real marks: [77, 41]
+Guesses: [76.8, 41.0]
+Average miss (MAE): 0.1
+```
+
+`coef_` now holds two slopes. `zip` pairs each one with its column name from
+`feature_names_in_`, so you never have to remember which is which.
+
+Reading it:
+
+- **Slope for hours 5.36:** each extra hour of study is worth about 5.36 more
+  marks, *with sleep kept the same*.
+- **Slope for sleep 0.87:** each extra hour of sleep is worth about 0.87 more
+  marks, *with study hours kept the same*.
+- **By hand:** the student who studied 9 hours and slept 5 gets
+  24.22 + 5.36 × 9 + 0.87 × 5 = 76.8.
+- **Average miss 0.1,** down from 1.1 with hours alone. The sleep column
+  helped. Two test rows is very few, though, so treat this as a hint, not
+  proof. With real data, keep back more rows.
+
+One new trap: **you cannot compare slopes by size when the columns are in
+different units.** A slope is "marks per hour" for one column and could be
+"marks per percentage point" for another. A bigger number does not mean a more
+important column.
