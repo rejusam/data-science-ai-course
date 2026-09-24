@@ -29,6 +29,7 @@ with one script.
 | [`command-line-cheatsheet.md`](command-line-cheatsheet.md) | Terminal and Anaconda Prompt commands, side by side |
 | [`conda-cheatsheet.md`](conda-cheatsheet.md) | Environments, packages, and fixing a broken environment |
 | [`git-cheatsheet.md`](git-cheatsheet.md) | The everyday git loop, commit messages, what not to commit |
+| [`linear-regression-cheatsheet.md`](linear-regression-cheatsheet.md) | Linear regression from the very beginning: one made-up example, five steps, commented code with its real output, what the model stores, and more than one column |
 | [`git-hands-on.md`](git-hands-on.md) | The session 5 exercise: your own repository, a commit, a branch, a pull request and an issue, in an hour |
 
 ## Contributing to this list
