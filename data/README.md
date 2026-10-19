@@ -100,3 +100,47 @@ Two birds have no measurements at all: all four number columns are empty.
 
 `sex` is empty for 10 birds, and one more has a full stop (`.`) where the
 sex should be. That is a gap written as text, so `isna()` does not count it.
+
+## `nz_crashes_2023.csv`
+
+Every crash reported to NZ Police in 2023, one row per crash, with 12 of the
+70 fields in the Crash Analysis System (CAS).
+
+| | |
+|---|---|
+| Source | Waka Kotahi NZ Transport Agency, Crash Analysis System (CAS), [nzta.govt.nz/safety/partners/crash-analysis-system](https://www.nzta.govt.nz/safety/partners/crash-analysis-system/) |
+| Licence | CC BY 4.0. Reuse is allowed with credit to Waka Kotahi NZ Transport Agency |
+| Downloaded | 19 October 2026, from the public `CAS_Data_Public` ArcGIS layer |
+| Size | 2,175,795 bytes |
+| Shape | 31,511 rows, 12 columns |
+| Missing values | `speedLimit` 169, `NumberOfLanes` 171 |
+
+CAS is updated every month and older records can still change, so a fresh
+download will not match this file exactly. This copy is kept fixed so that
+everyone gets the same numbers.
+
+Used in module 7 (decision trees workshop).
+
+### Columns
+
+| Column | What it is |
+|---|---|
+| `crashYear` | 2023 for every row |
+| `crashSeverity` | the worst injury: `Fatal Crash` (305), `Serious Crash` (2,086), `Minor Crash` (8,571), `Non-Injury Crash` (20,549) |
+| `speedLimit` | km/h, from 5 to 110 |
+| `light` | `Bright sun`, `Overcast`, `Twilight`, `Dark` or `Unknown` |
+| `weatherA` | `Fine`, `Light rain`, `Heavy rain`, `Mist or Fog`, `Hail or Sleet`, `Snow` or `Null` |
+| `roadSurface` | `Sealed`, `Unsealed`, `End of seal` or `Null` |
+| `urban` | `Urban` or `Open` (open road) |
+| `flatHill` | `Flat`, `Hill Road` or `Null` |
+| `NumberOfLanes` | lanes on the road |
+| `motorcycle`, `bicycle`, `truck` | how many were involved; 0 means none |
+
+Two things in this file are worth noticing rather than tidying away.
+
+`Null` and `Unknown` are written as text, so `isna()` does not count them.
+They mean the police report did not record that detail.
+
+`urban` follows the speed limit exactly: every crash at 70 km/h or below is
+`Urban`, every crash at 80 km/h or above is `Open`. The two columns carry the
+same information.
