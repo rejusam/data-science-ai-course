@@ -63,3 +63,40 @@ assembled after the fact, so a person's eventual leaving date appears on their
 earlier active rows too. A model predicting `STATUS` from that column would
 score beautifully and be worthless, because the column already contains the
 answer. That is called target leakage, and this is a clean example of it.
+
+## `penguins_size.csv`
+
+Body measurements of 344 penguins from three islands in the Palmer
+Archipelago, Antarctica, one row per bird.
+
+| | |
+|---|---|
+| Source | [kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data](https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data) |
+| Collected by | Dr Kristen Gorman and the Palmer Station, Antarctica LTER |
+| Licence | CC0: Public Domain |
+| Cite as | Gorman KB, Williams TD, Fraser WR (2014). Ecological Sexual Dimorphism and Environmental Variability within a Community of Antarctic Penguins (Genus *Pygoscelis*). PLoS ONE 9(3): e90081 |
+| Size | 13,519 bytes |
+| Shape | 344 rows, 7 columns |
+
+The Kaggle page has a second file, `penguins_lter.csv`, with 17 columns and
+longer names. This course uses `penguins_size.csv`.
+
+Used in module 7 (decision trees).
+
+### Columns
+
+| Column | What it is |
+|---|---|
+| `species` | `Adelie` (152), `Gentoo` (124), `Chinstrap` (68) |
+| `island` | `Biscoe`, `Dream` or `Torgersen` |
+| `culmen_length_mm`, `culmen_depth_mm` | bill length and depth. The culmen is the top ridge of the bill |
+| `flipper_length_mm` | millimetres |
+| `body_mass_g` | grams |
+| `sex` | `MALE` or `FEMALE` |
+
+Two things in this file are worth noticing rather than tidying away.
+
+Two birds have no measurements at all: all four number columns are empty.
+
+`sex` is empty for 10 birds, and one more has a full stop (`.`) where the
+sex should be. That is a gap written as text, so `isna()` does not count it.
