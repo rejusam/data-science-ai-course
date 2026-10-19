@@ -30,6 +30,7 @@ with one script.
 | [`conda-cheatsheet.md`](conda-cheatsheet.md) | Environments, packages, and fixing a broken environment |
 | [`git-cheatsheet.md`](git-cheatsheet.md) | The everyday git loop, commit messages, what not to commit |
 | [`linear-regression-cheatsheet.md`](linear-regression-cheatsheet.md) | Linear regression from the very beginning: one made-up example, five steps, commented code with its real output, what the model stores, and more than one column |
+| [`choosing-a-model-cheatsheet.md`](choosing-a-model-cheatsheet.md) | Which model, when, and where in the code: three questions to make a shortlist, a picture of how each model thinks, one script that tests them all, and how to pick the winner |
 | [`git-hands-on.md`](git-hands-on.md) | The session 5 exercise: your own repository, a commit, a branch, a pull request and an issue, in an hour |
 
 ## Contributing to this list
