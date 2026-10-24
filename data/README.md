@@ -81,7 +81,8 @@ Archipelago, Antarctica, one row per bird.
 The Kaggle page has a second file, `penguins_lter.csv`, with 17 columns and
 longer names. This course uses `penguins_size.csv`.
 
-Used in module 7 (decision trees).
+Used in module 6 (unsupervised learning) and module 7 (decision trees and
+ensemble models).
 
 ### Columns
 
