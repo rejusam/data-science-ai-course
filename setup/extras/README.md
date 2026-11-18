@@ -46,6 +46,27 @@ pip install transformers sentence-transformers
 These download model weights the first time you use them, which can be several
 hundred megabytes per model.
 
+## AI agents, from module 9
+
+Used in `modules/09a-neural-networks/notebooks/ai-agents.ipynb` and
+`ai-agents-ollama.ipynb`.
+
+Part 2 calls Claude. It needs the package and your own API key in a file
+called `.env` next to the notebook (the repository ignores `.env`, so the key
+is never committed):
+
+```
+pip install anthropic
+```
+
+Part 3 runs a free model on your own laptop with Ollama. No key, but the
+Ollama app and a 2 GB model download come first. Follow
+[`../../resources/ollama-setup.md`](../../resources/ollama-setup.md), which ends with:
+
+```
+pip install ollama
+```
+
 ## Cloud and big data, from modules 3 and 10
 
 BigQuery, week 7:
