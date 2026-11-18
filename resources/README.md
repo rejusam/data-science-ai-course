@@ -16,6 +16,7 @@ next, that page is the answer.
 | [`installing-the-tools.md`](installing-the-tools.md) | Click-through install of Anaconda, VS Code, Git and GitHub, written separately for Mac and Windows. Also as a [PDF](installing-the-tools.pdf) |
 | [`vs-code-and-anaconda.md`](vs-code-and-anaconda.md) | Connecting VS Code to the `dsai` environment, extensions, notebook kernels, the Windows PowerShell fix |
 | [`installing-git-and-github-cli.md`](installing-git-and-github-cli.md) | Git and the `gh` CLI, identity configuration, authenticating with GitHub |
+| [`ollama-setup.md`](ollama-setup.md) | Run a free AI model on your own laptop with Ollama, step by step for Windows and Mac. Needed for Part 3 of the Module 9 AI agents notebook |
 
 The terminal-first route through setup is in
 [`../setup/README.md`](../setup/README.md), which builds the course environment
