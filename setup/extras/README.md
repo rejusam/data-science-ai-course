@@ -48,7 +48,8 @@ hundred megabytes per model.
 
 ## AI agents, from module 9
 
-Used in `modules/09a-neural-networks/notebooks/ai-agents.ipynb`.
+Used in `modules/09a-neural-networks/notebooks/ai-agents.ipynb` and
+`ai-agents-ollama.ipynb`.
 
 Part 2 calls Claude. It needs the package and your own API key in a file
 called `.env` next to the notebook (the repository ignores `.env`, so the key

@@ -2,8 +2,10 @@
 
 **What this gives you:** a free AI language model that runs on your own
 computer. No API key, no payment, and nothing you type leaves your laptop.
-We use it in Part 3 of
-`modules/09a-neural-networks/notebooks/ai-agents.ipynb`.
+We use it in Module 9, in `modules/09a-neural-networks/notebooks/`:
+- `ai-agents.ipynb`, Part 3
+- `ai-agents-ollama.ipynb`, the same writer and reviewer on their own, for
+  anyone without an API key
 
 **What you need:**
 - about 3 GB of free disk space (the model alone is 2.0 GB)
@@ -102,3 +104,12 @@ The smaller model is faster but makes more mistakes.
 - A small model like this one is weaker than Claude or ChatGPT. It sometimes
   ignores instructions or gets facts wrong. Always check what it says.
 - To free the disk space later: `ollama rm llama3.2`
+
+## Learn more
+
+- Ollama download page: https://ollama.com/download
+- The `llama3.2` model and its sizes: https://ollama.com/library/llama3.2
+- The `ollama` Python package, with a `chat` example like ours:
+  https://github.com/ollama/ollama-python
+- What `ollama.chat` sends and gets back (the chat API):
+  https://docs.ollama.com/api/chat
